@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Final_escena10_Paleontologo">
+
+    <ImageView
+        android:id="@+id/cuevamarron"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/cuevamarron"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/cuevamarron" />
+
+    <ImageView
+        android:id="@+id/cuadrotexto"
+        android:layout_width="685dp"
+        android:layout_height="151dp"
+        android:contentDescription="@string/cuadrotexto"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/cuevamarron"
+        app:layout_constraintHorizontal_bias="0.415"
+        app:layout_constraintStart_toStartOf="@+id/cuevamarron"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.944"
+        app:srcCompat="@drawable/cuadrotexto" />
+
+    <com.example.aventuratextual2.Typewriter
+        android:id="@+id/type_textWriter"
+        android:layout_width="470dp"
+        android:layout_height="87dp"
+        android:fontFamily="@font/tipografiaportada"
+        android:text=""
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.851" />
+
+    <ImageView
+        android:id="@+id/personaje"
+        android:layout_width="140dp"
+        android:layout_height="150dp"
+        android:layout_marginEnd="85dp"
+        android:layout_marginBottom="80dp"
+        android:contentDescription="@string/personaje"
+        app:layout_constraintBottom_toBottomOf="@+id/type_textWriter"
+        app:layout_constraintEnd_toEndOf="@+id/cuadrotexto"
+        app:srcCompat="@drawable/tanainsultandoadre" />
+
+    <ImageView
+        android:id="@+id/fantasma"
+        android:layout_width="140dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="96dp"
+        android:layout_marginBottom="104dp"
+        android:contentDescription="@string/fantasma"
+        app:layout_constraintBottom_toBottomOf="@+id/type_textWriter"
+        app:layout_constraintStart_toStartOf="@+id/cuadrotexto"
+        app:srcCompat="@drawable/paleontologo" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

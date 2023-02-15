@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity4">
+
+
+    <ImageView
+        android:id="@+id/fondo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/TODO"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/underwater" />
+
+    <ImageView
+        android:id="@+id/addEntreno"
+        android:layout_width="358dp"
+        android:layout_height="137dp"
+        android:layout_marginTop="32dp"
+        android:contentDescription="@string/TODO"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.698"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/fondo"
+        app:srcCompat="@drawable/addentreno" />
+
+    <DatePicker
+        android:id="@+id/piker"
+        android:layout_width="384dp"
+        android:layout_height="344dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/fondo" />
+
+    <ImageView
+        android:id="@+id/calendario"
+        android:layout_width="54dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="108dp"
+        android:contentDescription="@string/TODO"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addEntreno"
+        app:srcCompat="@drawable/calendario" />
+
+    <ImageView
+        android:id="@+id/imgTime"
+        android:layout_width="54dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="44dp"
+        android:contentDescription="@string/TODO"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calendario"
+        app:srcCompat="@drawable/time"/>
+
+    <ImageView
+        android:id="@+id/imgDistancia"
+        android:layout_width="54dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="44dp"
+        android:contentDescription="@string/TODO"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgTime"
+        app:srcCompat="@drawable/distancia" />
+
+    <EditText
+        android:id="@+id/inputFecha"
+        android:layout_width="210dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="108dp"
+        android:autofillHints=""
+        android:background="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
+        android:clickable="false"
+        android:focusable="false"
+        android:hint="@string/fecha"
+        android:inputType="date"
+        android:paddingStart="20dp"
+        android:textColorHint="#000000"
+        app:layout_constraintStart_toEndOf="@+id/calendario"
+        app:layout_constraintTop_toBottomOf="@+id/addEntreno">
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/inputTime"
+        android:layout_width="210dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="35dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
+        android:hint="@string/tiempo"
+        android:importantForAutofill="no"
+        android:inputType="number"
+        android:paddingStart="20dp"
+        android:textColorHint="#000000"
+        app:layout_constraintStart_toEndOf="@+id/imgTime"
+        app:layout_constraintTop_toBottomOf="@+id/inputFecha" />
+
+    <EditText
+        android:id="@+id/inputDistancia"
+        android:layout_width="210dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="44dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
+        android:hint="@string/distanacia"
+        android:inputType="number"
+        android:paddingStart="20dp"
+        android:textColorHint="#000000"
+        app:layout_constraintStart_toEndOf="@+id/imgDistancia"
+        app:layout_constraintTop_toBottomOf="@+id/inputTime"
+        android:autofillHints="" />
+
+    <Button
+        android:id="@+id/Crear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="68dp"
+        android:text="@string/button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputDistancia" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

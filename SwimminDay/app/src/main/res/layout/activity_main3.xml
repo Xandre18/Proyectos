@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity3">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/TODO"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/fondoentrenos" />
+
+    <ImageView
+        android:id="@+id/imgblanca"
+        android:layout_width="348dp"
+        android:layout_height="117dp"
+        android:layout_marginTop="52dp"
+        android:contentDescription="@string/TODO"
+        android:scaleType="fitXY"
+
+        android:src="@drawable/blanco"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView2"
+         />
+
+    <ImageView
+        android:id="@+id/imgName"
+        android:layout_width="54dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:contentDescription="@string/TODO"
+        app:layout_constraintStart_toStartOf="@+id/imgblanca"
+        app:layout_constraintTop_toTopOf="@+id/imgblanca"
+        app:srcCompat="@drawable/imgnombre" />
+
+    <ImageView
+        android:id="@+id/imgPeso"
+        android:layout_width="54dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginBottom="8dp"
+        android:contentDescription="@string/TODO"
+        app:layout_constraintBottom_toBottomOf="@+id/imgblanca"
+        app:layout_constraintStart_toStartOf="@+id/imgblanca"
+        app:layout_constraintTop_toBottomOf="@+id/imgName"
+        app:layout_constraintVertical_bias="0.941"
+        app:srcCompat="@drawable/peso" />
+
+    <ImageView
+        android:id="@+id/imgalt"
+        android:layout_width="54dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="120dp"
+        android:layout_marginBottom="8dp"
+        android:contentDescription="@string/TODO"
+        app:layout_constraintBottom_toBottomOf="@+id/imgblanca"
+        app:layout_constraintEnd_toEndOf="@+id/imgblanca"
+        app:srcCompat="@drawable/altura" />
+
+    <ImageView
+        android:id="@+id/imgEdad"
+        android:layout_width="54dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="120dp"
+        android:contentDescription="@string/TODO"
+        app:layout_constraintEnd_toEndOf="@+id/imgblanca"
+        app:layout_constraintTop_toTopOf="@+id/imgblanca"
+        app:srcCompat="@drawable/edad" />
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="94dp"
+        android:layout_height="17dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/name"
+        app:layout_constraintStart_toEndOf="@+id/imgName"
+        app:layout_constraintTop_toTopOf="@+id/imgblanca" />
+
+    <TextView
+        android:id="@+id/tvedad"
+        android:layout_width="94dp"
+        android:layout_height="17dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/age"
+        app:layout_constraintStart_toEndOf="@+id/imgEdad"
+        app:layout_constraintTop_toTopOf="@+id/imgblanca" />
+
+    <TextView
+        android:id="@+id/tvalt"
+        android:layout_width="94dp"
+        android:layout_height="17dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="36dp"
+        android:text="@string/alt"
+        app:layout_constraintStart_toEndOf="@+id/imgalt"
+        app:layout_constraintTop_toBottomOf="@+id/tvedad" />
+
+    <TextView
+        android:id="@+id/tvpeso"
+        android:layout_width="94dp"
+        android:layout_height="17dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="36dp"
+        android:text="@string/peso"
+        app:layout_constraintStart_toEndOf="@+id/imgPeso"
+        app:layout_constraintTop_toBottomOf="@+id/tvName" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="352dp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginBottom="100dp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgblanca">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/res"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/bnt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="176dp"
+        android:layout_marginBottom="40dp"
+        android:contentDescription="@string/TODO"
+        android:src="@drawable/anadir"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="DuplicateSpeakableTextCheck" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

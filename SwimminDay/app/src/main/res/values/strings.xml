@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">SwimminDay</string>
+    <string name="TODO">todo</string>
+    <string name="nombre">Nombre:</string>
+    <string name="inserte_su_nombre">Inserte su nombre</string>
+    <string name="altura">Altura:</string>
+    <string name="insetAltura">Inserte su altura</string>
+    <string name="peso">Peso:</string>
+    <string name="insertPeso">Inserte su peso</string>
+    <string name="insertEdad">Inserte su edad</string>
+    <string name="edad">Edad:</string>
+    <string name="name">name</string>
+    <string name="age">edad</string>
+    <string name="alt">altura</string>
+    <string name="fecha">Fecha:</string>
+    <string name="tiempo">Tiempo:</string>
+    <string name="distanacia">Distancia</string>
+    <string name="button">Crear</string>
+</resources>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity6">
+
+    <ImageView
+        android:id="@+id/fondo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/fondo"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/puertadino" />
+
+    <ImageView
+        android:id="@+id/cuadrotxt"
+        android:layout_width="685dp"
+        android:layout_height="151dp"
+        android:contentDescription="@string/cuadrotexto"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/fondo"
+        app:layout_constraintHorizontal_bias="0.415"
+        app:layout_constraintStart_toStartOf="@id/fondo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.944"
+        app:srcCompat="@drawable/cuadrotexto" />
+
+
+    <com.example.aventuratextual2.Typewriter
+        android:id="@+id/textView"
+        android:layout_width="470dp"
+        android:layout_height="87dp"
+        android:fontFamily="@font/tipografiaportada"
+        android:text=""
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.851" />
+
+    <ImageView
+        android:id="@+id/xandre"
+        android:layout_width="140dp"
+        android:layout_height="150dp"
+        android:layout_marginEnd="85dp"
+        android:layout_marginBottom="80dp"
+        android:contentDescription="@string/personaje"
+        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="@+id/cuadrotxt"
+        app:srcCompat="@drawable/naila" />
+
+    <Button
+        android:id="@+id/buttonsi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/orange_button"
+        android:text="@string/beber"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.307"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.895"
+        tools:ignore="TextContrastCheck" />
+
+    <Button
+        android:id="@+id/buttonno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/purple_button"
+        android:text="@string/pasar"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.695"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.895"
+        tools:ignore="TextContrastCheck" />
+
+    <ProgressBar
+        android:id="@+id/subidonBar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="174dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:indeterminate="false"
+        android:max="100"
+        android:progress="0"
+        android:progressTint="#FF9800"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/corduraBar" />
+
+    <ProgressBar
+        android:id="@+id/corduraBar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="174dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:max="100"
+        android:progress="100"
+        android:progressTint="#FF9800"
+        android:scrollbarSize="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/locura"
+        android:layout_width="27dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toEndOf="@+id/corduraBar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/locura" />
+    <ImageView
+        android:id="@+id/cerveza"
+        android:layout_width="27dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="45dp"
+        app:layout_constraintStart_toEndOf="@+id/subidonBar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/cerveza" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

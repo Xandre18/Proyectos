@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity2">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="308dp"
+        android:layout_height="250dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginEnd="46dp"
+        android:contentDescription="@string/TODO"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/nadador" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="99dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/nombre"
+        android:textStyle="bold"
+        android:textColor="#0097A7"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/inputName"
+        android:layout_width="236dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="33dp"
+        android:hint="@string/inserte_su_nombre"
+        app:layout_constraintStart_toEndOf="@+id/name"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        tools:ignore="TextContrastCheck" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/inputAlt"
+        android:layout_width="236dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="35dp"
+        android:hint="@string/insetAltura"
+        android:inputType="number"
+        app:layout_constraintStart_toEndOf="@+id/altura"
+        app:layout_constraintTop_toBottomOf="@+id/inputName"
+        tools:ignore="TextContrastCheck" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/inputPeso"
+        android:layout_width="236dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="35dp"
+        android:hint="@string/insertPeso"
+        android:inputType="number"
+        app:layout_constraintStart_toEndOf="@+id/peso"
+        app:layout_constraintTop_toBottomOf="@+id/inputAlt"
+        tools:ignore="TextContrastCheck" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/inputEdad"
+        android:layout_width="236dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="35dp"
+        android:hint="@string/insertEdad"
+        android:inputType="number"
+        app:layout_constraintStart_toEndOf="@+id/edad"
+        app:layout_constraintTop_toBottomOf="@+id/inputPeso"
+        tools:ignore="TextContrastCheck" />
+
+    <TextView
+        android:id="@+id/altura"
+        android:layout_width="99dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="50dp"
+        android:text="@string/altura"
+        android:textAlignment="center"
+        android:textColor="#0097A7"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name" />
+
+    <TextView
+        android:id="@+id/peso"
+        android:layout_width="99dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="50dp"
+        android:text="@string/peso"
+        android:textAlignment="center"
+        android:textColor="#0097A7"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/altura" />
+
+    <TextView
+        android:id="@+id/edad"
+        android:layout_width="99dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="50dp"
+        android:text="@string/edad"
+        android:textAlignment="center"
+        android:textColor="#0097A7"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/peso" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/bnt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="176dp"
+        android:layout_marginTop="56dp"
+        android:contentDescription="@string/TODO"
+        android:src="@drawable/enviar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputEdad"
+        tools:ignore="DuplicateSpeakableTextCheck" />
+</androidx.constraintlayout.widget.ConstraintLayout>

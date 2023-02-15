@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Scaneator</string>
+    <string name="todo">TODO</string>
+    <string name="scan_qr">Scan QR</string>
+    <string name="escanear_qr">Escanear QR / Codigo Barras</string>
+    <string name="escanear_codigo_de_barras">Generar codigo de barras</string>
+    <string name="generar_qr">Generar QR</string>
+    <string name="generar">Generar</string>
+    <string name="introduzca_11_numeros">Introduzca 11 numeros</string>
+    <string name="introduzca_lo_que_desee">Introduzca lo que desee</string>
+</resources>

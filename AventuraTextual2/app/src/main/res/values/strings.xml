@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">AventuraTextual2</string>
+    <string name="noche_de_halloween">NOCHE DE HALLOWEEN</string>
+    <string name="supernenas_production">Supernenas Production</string>
+    <string name="imagen">IMAGEN</string>
+    <string name="fondo">FONDO</string>
+    <string name="cuadrotexto">CUADROTEXTO</string>
+    <string name="casa">CASA</string>
+    <string name="imagedre">IMAGEDRE</string>
+    <string name="si">SI</string>
+    <string name="no">NO</string>
+    <string name="jugar">Jugar</string>
+    <string name="salir">Salir</string>
+    <string name="buttonno">no</string>
+    <string name="fondo_negro">fondo negro</string>
+    <string name="beber">Beber</string>
+    <string name="movil">movil</string>
+    <string name="pasar">Pasar</string>
+    <string name="personaje">personaje</string>
+    <string name="izquierda">izquierda</string>
+    <string name="mausoleo">mausoleo</string>
+    <string name="fantasma">fantasma</string>
+    <string name="pasadizo">pasadizo</string>
+    <string name="DERECHA">DERECHA</string>
+    <string name="pasadizocalaveras">pasadizocalaveras</string>
+    <string name="abrir">ABRIR</string>
+    <string name="cuevamarron">cuevamarron</string>
+    <string name="npc">npc</string>
+    <string name="derecha">derecha</string>
+    <string name="buena">Buena</string>
+    <string name="mala">mala</string>
+    <string name="no_beber">No beber</string>
+    <string name="xandre">Xandre</string>
+    <string name="naila">Naila</string>
+    <string name="aitana">Aitana</string>
+    <string name="todo">TODO</string>
+    >>>>>>> Stashed changes
+
+
+</resources>

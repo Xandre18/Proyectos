@@ -1,0 +1,14 @@
+<discos>
+    <disco id = "1" nombre="BBO" artista="Hoke" genero="Rap" anho="2022">
+            <cancion Cnombre="Ojo de Halcón" duracion="1:50"></cancion>
+            <cancion Cnombre="Five O" duracion="2:20"></cancion>
+            <cancion Cnombre="Chorbo Real" duracion="3:02"></cancion>
+            <cancion Cnombre="Jjjj" duracion="3:27"></cancion>
+    </disco>
+     <disco id = "2" nombre="Moonlight922" artista="Cruz Cafuné" genero="Rap" anho="2020">
+            <cancion Cnombre="Mi Isla" duracion="2:58"></cancion>
+            <cancion Cnombre="Vvs" duracion="2:48"></cancion>
+            <cancion Cnombre="Ojitos Aguaos" duracion="3:18"></cancion>
+            <cancion Cnombre="Lo pues intentar" duracion="3:19"></cancion>
+    </disco>
+</discos>
