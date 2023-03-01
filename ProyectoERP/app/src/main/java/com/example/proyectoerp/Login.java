@@ -38,15 +38,23 @@ public class Login extends AppCompatActivity {
             public void onClick(View v) {
                 String user = eUserName.getText().toString();
                 String pwd = ePaswd.getText().toString();
-
+                boolean esAdmin = false;
                for(int i = 0; i< usersList.size();i++){
                    if(user.equals(usersList.get(i).getName()) && pwd.equals(usersList.get(i).getPaswd())){
 
                        if(usersList.get(i).isAdmin()){
                            Intent intent = new Intent(Login.this, MainActivity.class);
+                           esAdmin = usersList.get(i).isAdmin();
+                           intent.putExtra("isAdmin", esAdmin);
                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                            startActivity(intent);
-                       }else Toast.makeText(Login.this, "juan", Toast.LENGTH_SHORT).show();
+                       }else {
+                           Intent intent = new Intent(Login.this, MainActivity.class);
+                           esAdmin = usersList.get(i).isAdmin();
+                           intent.putExtra("isAdmin", esAdmin);
+                           intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                           startActivity(intent);
+                       }
 
                    }
                }
