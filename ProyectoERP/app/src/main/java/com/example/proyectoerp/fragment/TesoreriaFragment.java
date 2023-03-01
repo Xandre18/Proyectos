@@ -1,4 +1,4 @@
-package com.example.proyectoerp;
+package com.example.proyectoerp.fragment;
 
 import android.os.Bundle;
 
@@ -8,13 +8,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class ClientesFragment extends Fragment {
+import com.example.proyectoerp.R;
+
+public class TesoreriaFragment extends Fragment {
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_clientes, container, false);
+        return inflater.inflate(R.layout.fragment_tesoreria, container, false);
     }
 }

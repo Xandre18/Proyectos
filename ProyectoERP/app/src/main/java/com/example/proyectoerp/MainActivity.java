@@ -10,6 +10,12 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.proyectoerp.fragment.ClientesFragment;
+import com.example.proyectoerp.fragment.CorreoFragment;
+import com.example.proyectoerp.fragment.HomeFragment;
+import com.example.proyectoerp.fragment.ProveedoresFragment;
+import com.example.proyectoerp.fragment.SettingsFragment;
+import com.example.proyectoerp.fragment.TesoreriaFragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -19,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = findViewById(R.id.toolbar); //Ignore red line errors
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         drawerLayout = findViewById(R.id.drawer_layout);
@@ -30,6 +36,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
+            navigationView.setCheckedItem(R.id.nav_home);
+        }
 
 
         Bundle b = getIntent().getExtras();
@@ -56,6 +66,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.nav_correo:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CorreoFragment()).commit();
+                break;
+            case R.id.nav_settings:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SettingsFragment()).commit();
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;

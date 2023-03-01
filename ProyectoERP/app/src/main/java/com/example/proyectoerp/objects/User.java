@@ -1,4 +1,4 @@
-package com.example.proyectoerp;
+package com.example.proyectoerp.objects;
 
 public class User {
 

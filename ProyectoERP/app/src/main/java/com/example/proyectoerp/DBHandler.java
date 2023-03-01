@@ -7,6 +7,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 
+import com.example.proyectoerp.objects.ContControler;
+import com.example.proyectoerp.objects.User;
+
 import java.util.ArrayList;
 
 public class DBHandler extends SQLiteOpenHelper {
@@ -95,15 +98,13 @@ public class DBHandler extends SQLiteOpenHelper {
         c.close();
        return userList;
     }
+
     public void addUser(User u){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(USER_COL, u.getName());
         values.put(PASWD_COL, u.getPaswd());
         values.put(ADMIN_COL , u.isAdmin());
-//        if(u.isAdmin()){
-//            values.put(ADMIN_COL, 1);
-//        }else values.put(ADMIN_COL, 0);
 
         db.insert(TABLE_USERS, null, values);
         db.close();
