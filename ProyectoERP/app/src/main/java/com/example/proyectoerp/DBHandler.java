@@ -64,6 +64,20 @@ public class DBHandler extends SQLiteOpenHelper {
         return contList;
     }
 
+    public void addCont(ContControler cc) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(AMOUNT_COL, cc.getMount());
+        ArrayList<ContControler> aux = readCont();
+        int auxBalance = 0;
+        for (int i = aux.size() - 1; i < aux.size(); i++) {
+            auxBalance = aux.get(i).getBalance();
+        }
+        values.put(BALANCE_COL, auxBalance - (cc.getMount()));
+        db.insert(TABLE_CONT, null, values);
+        db.close();
+    }
+
     public ArrayList<User> leerUsers(){
        userList = new ArrayList<>();
        SQLiteDatabase db = this.getWritableDatabase();
