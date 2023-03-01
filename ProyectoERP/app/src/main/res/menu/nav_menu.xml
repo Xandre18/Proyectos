@@ -18,6 +18,10 @@
             android:title="Clientes"/>
         <item
             android:id="@+id/nav_proveedores"
+            android:icon="@drawable/proveedor"
+            android:title="Proveedores"/>
+        <item
+            android:id="@+id/nav_correo"
             android:icon="@drawable/sobres"
             android:title="Correo masivo"/>
 
