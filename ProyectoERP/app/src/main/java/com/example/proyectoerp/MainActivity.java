@@ -9,13 +9,14 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
-import com.example.proyectoerp.fragment.ClientesFragment;
-import com.example.proyectoerp.fragment.CorreoFragment;
-import com.example.proyectoerp.fragment.HomeFragment;
-import com.example.proyectoerp.fragment.ProveedoresFragment;
-import com.example.proyectoerp.fragment.SettingsFragment;
-import com.example.proyectoerp.fragment.TesoreriaFragment;
+import com.example.proyectoerp.fragment_admins.ClientesFragment;
+import com.example.proyectoerp.fragment_admins.CorreoFragment;
+import com.example.proyectoerp.fragment_admins.HomeFragment;
+import com.example.proyectoerp.fragment_admins.ProveedoresFragment;
+import com.example.proyectoerp.fragment_admins.SettingsFragment;
+import com.example.proyectoerp.fragment_admins.TesoreriaFragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -25,27 +26,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        drawerLayout = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout,toolbar,R.string.open_nav,R.string.close_nav);
-        drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
-
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
-            navigationView.setCheckedItem(R.id.nav_home);
-        }
-
-
         Bundle b = getIntent().getExtras();
         if(b.getBoolean("isAdmin")){
 
+            Toolbar toolbar = findViewById(R.id.toolbar);
+            setSupportActionBar(toolbar);
+
+            drawerLayout = findViewById(R.id.drawer_layout);
+            NavigationView navigationView = findViewById(R.id.nav_view);
+            navigationView.setNavigationItemSelectedListener(this);
+
+            ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout,toolbar,R.string.open_nav,R.string.close_nav);
+            drawerLayout.addDrawerListener(toggle);
+            toggle.syncState();
+
+            if (savedInstanceState == null) {
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
+                navigationView.setCheckedItem(R.id.nav_home);
+            }
         }else{
+            Toast.makeText(this, "juan", Toast.LENGTH_SHORT).show();
 
         }
     }

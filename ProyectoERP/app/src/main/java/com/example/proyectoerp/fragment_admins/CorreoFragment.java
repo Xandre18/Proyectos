@@ -1,4 +1,4 @@
-package com.example.proyectoerp.fragment;
+package com.example.proyectoerp.fragment_admins;
 
 import android.os.Bundle;
 
