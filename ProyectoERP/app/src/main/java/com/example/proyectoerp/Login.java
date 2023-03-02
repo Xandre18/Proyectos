@@ -2,7 +2,9 @@ package com.example.proyectoerp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -22,8 +24,16 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         dbHandler = new DBHandler(this);
-        dbHandler.addUser(new User("admin", "admin", true));
-        dbHandler.addUser(new User("user", "user", false));
+        SharedPreferences pref = getSharedPreferences("itiUsers", Context.MODE_PRIVATE);
+
+        if(!pref.getBoolean("itiUsers", false)){
+            dbHandler.addUser(new User("admin", "admin", true));
+            dbHandler.addUser(new User("user", "user", false));
+            SharedPreferences.Editor editor = pref.edit();
+            editor.putBoolean("itiUsers", true);
+            editor.commit();
+        }
+
         usersList = dbHandler.leerUsers();
 
         eUserName = findViewById(R.id.editUserName);

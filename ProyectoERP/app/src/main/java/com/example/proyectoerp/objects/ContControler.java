@@ -9,8 +9,8 @@ public class ContControler {
         this.balance = balance;
     }
 
-    public ContControler(int mount) {
-        this.mount = mount;
+    public ContControler(int balance) {
+        this.balance = balance;
     }
 
     public int getId() {

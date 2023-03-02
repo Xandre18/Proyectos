@@ -80,6 +80,14 @@ public class DBHandler extends SQLiteOpenHelper {
         db.insert(TABLE_CONT, null, values);
         db.close();
     }
+    public void addFistCont(ContControler contControler){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(AMOUNT_COL, 0);
+        values.put(BALANCE_COL, contControler.getBalance());
+        db.insert(TABLE_CONT, null, values);
+        db.close();
+    }
 
     public ArrayList<User> leerUsers(){
        userList = new ArrayList<>();
