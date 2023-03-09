@@ -13,6 +13,8 @@ public class ContControler {
         this.balance = balance;
     }
 
+    public ContControler(int mount, boolean isMount){this.mount = mount;};
+
     public int getId() {
         return id;
     }

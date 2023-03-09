@@ -67,6 +67,8 @@ public class DBHandler extends SQLiteOpenHelper {
         return contList;
     }
 
+
+
     public void addCont(ContControler cc) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -76,10 +78,11 @@ public class DBHandler extends SQLiteOpenHelper {
         for (int i = aux.size() - 1; i < aux.size(); i++) {
             auxBalance = aux.get(i).getBalance();
         }
-        values.put(BALANCE_COL, auxBalance - (cc.getMount()));
+        values.put(BALANCE_COL, auxBalance + (cc.getMount()));
         db.insert(TABLE_CONT, null, values);
         db.close();
     }
+
     public void addFistCont(ContControler contControler){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
