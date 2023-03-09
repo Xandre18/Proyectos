@@ -12,11 +12,16 @@ import com.example.proyectoerp.R;
 
 public class ClientesFragment extends Fragment {
 
+    View v;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_clientes, container, false);
+        v = inflater.inflate(R.layout.fragment_clientes, container, false);
+
+
+
+        return v;
     }
 }

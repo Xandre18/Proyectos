@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 
+import com.example.proyectoerp.objects.Cliente;
 import com.example.proyectoerp.objects.ContControler;
 import com.example.proyectoerp.objects.User;
 
@@ -31,6 +32,15 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String BALANCE_COL = "balance";
     private static ArrayList<ContControler> contList;
 
+        //Tabla clientes
+    private static final String TABLE_CUSTOMER = "customer";
+    private static final String NAME_COL = "name";
+    private static final String LAST_NAME_COL = "lastName";
+    private static final String AGE_COL = "age";
+    private static final String EMAIL_COL = "email";
+    private static final String PHONE_COL = "phone";
+    private static ArrayList<Cliente> customerList;
+
    public DBHandler(Context context){super(context, DB_NAME, null, DB_VERSION);}
 
     @Override
@@ -47,12 +57,45 @@ public class DBHandler extends SQLiteOpenHelper {
                 BALANCE_COL + " INTEGER NOT NULL)";
 
         db.execSQL(query_Cont);
+
+        String query_customer = "CREATE TABLE " + TABLE_CUSTOMER + "(" +
+                NAME_COL + " TEXT NOT NULL, " +
+                LAST_NAME_COL + " TEXT NOT NULL, " +
+                AGE_COL + " TEXT NOT NULL, " +
+                EMAIL_COL + " TEXT NOT NULL, " +
+                PHONE_COL + " INTEGER  PRIMARY KEY)";
+        db.execSQL(query_customer);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
             db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
             db.execSQL("DROP TABLE IF EXISTS " + TABLE_CONT);
+    }
+
+    public ArrayList<Cliente> readCustomer(){
+       customerList = new ArrayList<>();
+       SQLiteDatabase db = this.getWritableDatabase();
+        Cursor c = db.rawQuery("SELECT * FROM " + TABLE_CUSTOMER, null);
+        if(c.moveToFirst()){
+            do {
+                customerList.add(new Cliente(c.getString(0),c.getString(1),c.getString(2),c.getString(3),c.getInt(4)));
+            }while (c.moveToNext());
+        }
+
+       return customerList;
+    }
+
+    public void addCustomer(Cliente cliente){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(NAME_COL, cliente.getNombre());
+        values.put(LAST_NAME_COL, cliente.getApellido());
+        values.put(AGE_COL, cliente.getEdad());
+        values.put(EMAIL_COL, cliente.getEmail());
+        values.put(PHONE_COL, cliente.getTel());
+        db.insert(TABLE_CUSTOMER,null,values);
+        db.close();
     }
 
     public ArrayList<ContControler> readCont(){
@@ -66,8 +109,6 @@ public class DBHandler extends SQLiteOpenHelper {
         }
         return contList;
     }
-
-
 
     public void addCont(ContControler cc) {
         SQLiteDatabase db = this.getWritableDatabase();
