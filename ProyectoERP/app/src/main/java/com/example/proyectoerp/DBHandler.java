@@ -162,4 +162,16 @@ public class DBHandler extends SQLiteOpenHelper {
         db.close();
     }
 
+    public void updateCustomer(int tlfOriginal, Cliente c ){
+       SQLiteDatabase db = this.getWritableDatabase();
+       ContentValues values = new ContentValues();
+
+       values.put(NAME_COL, c.getNombre());
+       values.put(LAST_NAME_COL, c.getApellido());
+       values.put(AGE_COL, c.getEdad());
+       values.put(EMAIL_COL, c.getEmail());
+       values.put(PHONE_COL, c.getTel());
+
+       db.update(TABLE_CUSTOMER, values, PHONE_COL+ "=" +tlfOriginal, null);
+    }
 }

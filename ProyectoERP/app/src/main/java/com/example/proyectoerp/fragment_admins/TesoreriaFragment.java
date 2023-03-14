@@ -40,7 +40,7 @@ public class TesoreriaFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        setHasOptionsMenu(true);
+
          v = inflater.inflate(R.layout.fragment_tesoreria, container, false);
          lv = v.findViewById(R.id.lvTesoreria);
 

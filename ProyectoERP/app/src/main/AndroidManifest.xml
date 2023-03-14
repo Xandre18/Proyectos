@@ -15,11 +15,29 @@
         android:theme="@style/Theme.ProyectoERP"
         tools:targetApi="31">
         <activity
+            android:name=".EditCustomer"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".AddCustomer"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".AddCont"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
+            <!-- Meta data para tener la opcion de volver -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".MainActivity"

@@ -53,13 +53,19 @@ public class Login extends AppCompatActivity {
                        if(usersList.get(i).isAdmin()){
                            Intent intent = new Intent(Login.this, MainActivity.class);
                            esAdmin = usersList.get(i).isAdmin();
-                           intent.putExtra("isAdmin", esAdmin);
+                           SharedPreferences pref = getSharedPreferences("admin", Context.MODE_PRIVATE);
+                           SharedPreferences.Editor editor = pref.edit();
+                           editor.putBoolean("isAdmin",true);
+                           editor.commit();
                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                            startActivity(intent);
                        }else {
                            Intent intent = new Intent(Login.this, MainActivity.class);
                            esAdmin = usersList.get(i).isAdmin();
-                           intent.putExtra("isAdmin", esAdmin);
+                           SharedPreferences pref = getSharedPreferences("admin", Context.MODE_PRIVATE);
+                           SharedPreferences.Editor editor = pref.edit();
+                           editor.putBoolean("isAdmin",false);
+                           editor.commit();
                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                            startActivity(intent);
                        }
