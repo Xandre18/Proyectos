@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.proyectoerp.objects.Cliente;
 import com.example.proyectoerp.objects.ContControler;
+import com.example.proyectoerp.objects.Supplier;
 import com.example.proyectoerp.objects.User;
 
 import java.util.ArrayList;
@@ -41,6 +42,14 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String PHONE_COL = "phone";
     private static ArrayList<Cliente> customerList;
 
+        //Tabla Proveedores
+    private static final String TABLE_SUPPLIER = "supplier";
+    private static final String PRODUCTO_COL = "product";
+    private static final String COMPANY_COL = "company";
+    private static final String ADDRESS_COL = "address";
+    private static ArrayList<Supplier> supList;
+
+
    public DBHandler(Context context){super(context, DB_NAME, null, DB_VERSION);}
 
     @Override
@@ -65,13 +74,51 @@ public class DBHandler extends SQLiteOpenHelper {
                 EMAIL_COL + " TEXT NOT NULL, " +
                 PHONE_COL + " INTEGER  PRIMARY KEY)";
         db.execSQL(query_customer);
+
+        String query_supplier = "CREATE TABLE " + TABLE_SUPPLIER + "(" +
+                ID_COL + "INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                PRODUCTO_COL + " TEXT NOT NULL, " +
+                COMPANY_COL + " TEXT NOT NULL, " +
+                EMAIL_COL + " TEXT NOT NULL, " +
+                PHONE_COL + " TEXT NOT NULL, " +
+                ADDRESS_COL + " TEXT NOT NULL)";
+        db.execSQL(query_supplier);
+
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
             db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
             db.execSQL("DROP TABLE IF EXISTS " + TABLE_CONT);
+            db.execSQL("DROP TABLE IF EXISTS " + TABLE_CUSTOMER);
+            db.execSQL("DROP TABLE IF EXISTS " + TABLE_SUPPLIER);
     }
+
+
+    public ArrayList<Supplier> readSupplier(){
+       supList= new ArrayList<>();
+       SQLiteDatabase db = this.getWritableDatabase();
+       Cursor c = db.rawQuery("SELECT * FROM " + TABLE_SUPPLIER, null);
+       if(c.moveToNext()){
+           do{
+              supList.add(new Supplier(c.getInt(0), c.getString(1), c.getString(2), c.getString(3), c.getString(4),c.getString(5)));
+           }while(c.moveToNext());
+       }
+
+       return supList;
+    }
+    public ArrayList<ContControler> readCont(){
+        contList = new ArrayList<>();
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor c = db.rawQuery("SELECT * FROM " + TABLE_CONT, null);
+        if(c.moveToFirst()){
+            do {
+                contList.add(new ContControler(c.getInt(0),c.getInt(1),c.getInt(2)));
+            }while(c.moveToNext());
+        }
+        return contList;
+    }
+
 
     public ArrayList<Cliente> readCustomer(){
        customerList = new ArrayList<>();
@@ -98,17 +145,31 @@ public class DBHandler extends SQLiteOpenHelper {
         db.close();
     }
 
-    public ArrayList<ContControler> readCont(){
-       contList = new ArrayList<>();
-       SQLiteDatabase db = this.getWritableDatabase();
-       Cursor c = db.rawQuery("SELECT * FROM " + TABLE_CONT, null);
-        if(c.moveToFirst()){
-            do {
-                contList.add(new ContControler(c.getInt(0),c.getInt(1),c.getInt(2)));
-            }while(c.moveToNext());
-        }
-        return contList;
+    public void updateCustomer(int tlfOriginal, Cliente c ){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(NAME_COL, c.getNombre());
+        values.put(LAST_NAME_COL, c.getApellido());
+        values.put(AGE_COL, c.getEdad());
+        values.put(EMAIL_COL, c.getEmail());
+        values.put(PHONE_COL, c.getTel());
+
+        db.update(TABLE_CUSTOMER, values, PHONE_COL+ "=" +tlfOriginal, null);
     }
+
+    public void deleteCustomer(Cliente c){
+       SQLiteDatabase db = this.getWritableDatabase();
+       String queryDel = "DELETE FROM " + TABLE_CUSTOMER +
+               " WHERE " + NAME_COL + "= \""  +  c.getNombre() +
+               "\"  AND " + LAST_NAME_COL + "= \"" + c.getApellido() +
+               "\"  AND " + AGE_COL + "= \""+ c.getEdad() +
+               "\"  AND " + EMAIL_COL + "= \"" + c.getEmail() +
+               "\"  AND " + PHONE_COL + "= \""+ c.getTel() + "\"";
+       db.execSQL(queryDel);
+    }
+
+
 
     public void addCont(ContControler cc) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -162,16 +223,5 @@ public class DBHandler extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void updateCustomer(int tlfOriginal, Cliente c ){
-       SQLiteDatabase db = this.getWritableDatabase();
-       ContentValues values = new ContentValues();
 
-       values.put(NAME_COL, c.getNombre());
-       values.put(LAST_NAME_COL, c.getApellido());
-       values.put(AGE_COL, c.getEdad());
-       values.put(EMAIL_COL, c.getEmail());
-       values.put(PHONE_COL, c.getTel());
-
-       db.update(TABLE_CUSTOMER, values, PHONE_COL+ "=" +tlfOriginal, null);
-    }
 }

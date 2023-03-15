@@ -11,6 +11,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.proyectoerp.fragment_admins.ClientesFragment;
@@ -21,8 +23,14 @@ import com.example.proyectoerp.fragment_admins.SettingsFragment;
 import com.example.proyectoerp.fragment_admins.TesoreriaFragment;
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
     private DrawerLayout drawerLayout;
+    TextView userName, correo;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             drawerLayout = findViewById(R.id.drawer_layout);
             NavigationView navigationView = findViewById(R.id.nav_view);
+
             navigationView.setNavigationItemSelectedListener(this);
 
             ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout,toolbar,R.string.open_nav,R.string.close_nav);
@@ -45,10 +54,28 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
                 navigationView.setCheckedItem(R.id.nav_home);
             }
+
+            View headerView = navigationView.inflateHeaderView(R.layout.nav_header);
+            userName = headerView.findViewById(R.id.user);
+            correo = headerView.findViewById(R.id.correo);
+
+            SharedPreferences pref2 = getSharedPreferences("userName", Context.MODE_PRIVATE);
+            String user = pref2.getString("user","erro");
+
+
+            userName.setText(user.toUpperCase(Locale.ROOT));
+            correo.setText(user +  "@gmail.com");
+
+
+
         }else{
             Toast.makeText(this, "juan", Toast.LENGTH_SHORT).show();
 
         }
+
+
+
+
     }
 
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {

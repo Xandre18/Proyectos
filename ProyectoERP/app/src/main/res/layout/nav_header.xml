@@ -14,12 +14,14 @@
         android:src="@drawable/aklogo"/>
 
     <TextView
+        android:id="@+id/user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="User Name:"
         android:textColor="@color/white"
         android:textStyle="bold"/>
     <TextView
+        android:id="@+id/correo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="contact@gmail.com"

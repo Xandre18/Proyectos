@@ -22,6 +22,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.proyectoerp.AddCont;
+import com.example.proyectoerp.AddCustomer;
 import com.example.proyectoerp.DBHandler;
 import com.example.proyectoerp.R;
 import com.example.proyectoerp.adapters.CountAdapter;
@@ -59,6 +60,9 @@ public class TesoreriaFragment extends Fragment {
             lv.setAdapter(ca);
             lv.setClickable(true);
         }
+
+        // Habilitar el menú de opciones
+        setHasOptionsMenu(true);
         return v;
     }
 
@@ -79,9 +83,6 @@ public class TesoreriaFragment extends Fragment {
 
         return super.onOptionsItemSelected(item);
     }
-
-
-
 
 
     private void showDialog(){

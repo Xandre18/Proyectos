@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-    <item android:title="añadir"
+    <item android:title="add"
         android:id="@+id/add"
         android:orderInCategory="100"
         app:showAsAction="always"

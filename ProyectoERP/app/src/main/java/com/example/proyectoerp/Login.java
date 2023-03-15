@@ -57,6 +57,12 @@ public class Login extends AppCompatActivity {
                            SharedPreferences.Editor editor = pref.edit();
                            editor.putBoolean("isAdmin",true);
                            editor.commit();
+
+                           SharedPreferences pref2 = getSharedPreferences("userName", Context.MODE_PRIVATE);
+                           SharedPreferences.Editor editor2 = pref2.edit();
+                           editor2.putString("user", user);
+                           editor2.commit();
+
                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                            startActivity(intent);
                        }else {

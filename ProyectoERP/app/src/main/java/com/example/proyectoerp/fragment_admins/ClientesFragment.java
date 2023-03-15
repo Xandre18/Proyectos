@@ -1,5 +1,7 @@
 package com.example.proyectoerp.fragment_admins;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -69,8 +71,47 @@ public class ClientesFragment extends Fragment {
             }
         });
 
+        lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
 
+                Cliente c = customerList.get(position);
+
+                confirfDelete(c);
+
+
+                return true;
+            }
+        });
         return v;
+    }
+
+    public void confirfDelete(Cliente c){
+        new AlertDialog.Builder(v.getContext())
+                .setTitle("¡¡¡¡SEGURO!!!!")
+                .setMessage("¿Estas seguro que quieres borrar el siguiente cliente: \n" +
+                        "Nombre: " + c.getNombre() + "\n" +
+                        "Apellido: " + c.getApellido() + "\n" +
+                        "Edad: " + c.getEdad() + "\n" +
+                        "Telefono: " + c.getTel())
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        handler.deleteCustomer(c);
+                        Toast.makeText(v.getContext(), "Borrado correctamente", Toast.LENGTH_SHORT).show();
+                        dialog.dismiss();
+                        customerList = handler.readCustomer();
+                        ca = new CustomerAdapter(v.getContext(),R.layout.cliente_list_item,customerList);
+                        lv.setAdapter(ca);
+                    }
+                }).setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(v.getContext(), "Cancelado", Toast.LENGTH_SHORT).show();
+                        dialog.dismiss();
+                    }
+                }).show();
+
     }
 
     @Override
