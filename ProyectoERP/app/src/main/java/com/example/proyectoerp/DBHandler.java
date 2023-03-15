@@ -76,7 +76,7 @@ public class DBHandler extends SQLiteOpenHelper {
         db.execSQL(query_customer);
 
         String query_supplier = "CREATE TABLE " + TABLE_SUPPLIER + "(" +
-                ID_COL + "INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                ID_COL + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 PRODUCTO_COL + " TEXT NOT NULL, " +
                 COMPANY_COL + " TEXT NOT NULL, " +
                 EMAIL_COL + " TEXT NOT NULL, " +
@@ -133,6 +133,18 @@ public class DBHandler extends SQLiteOpenHelper {
        return customerList;
     }
 
+    public void addSupplier(Supplier s){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(PRODUCTO_COL, s.getProduct());
+        values.put(COMPANY_COL,s.getCompany());
+        values.put(EMAIL_COL, s.getEmail());
+        values.put(PHONE_COL, s.getTlfn());
+        values.put(ADDRESS_COL, s.getAddress());
+        db.insert(TABLE_SUPPLIER,null,values);
+        db.close();
+    }
+
     public void addCustomer(Cliente cliente){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -158,6 +170,20 @@ public class DBHandler extends SQLiteOpenHelper {
         db.update(TABLE_CUSTOMER, values, PHONE_COL+ "=" +tlfOriginal, null);
     }
 
+    public void updateSupplider(int idOriginal, Supplier s){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(PRODUCTO_COL, s.getProduct());
+        values.put(COMPANY_COL, s.getCompany());
+        values.put(EMAIL_COL, s.getEmail());
+        values.put(PHONE_COL, s.getTlfn());
+        values.put(ADDRESS_COL, s.getAddress());
+
+        db.update(TABLE_SUPPLIER, values, ID_COL+ " = " +idOriginal, null);
+
+
+    }
+
     public void deleteCustomer(Cliente c){
        SQLiteDatabase db = this.getWritableDatabase();
        String queryDel = "DELETE FROM " + TABLE_CUSTOMER +
@@ -167,6 +193,14 @@ public class DBHandler extends SQLiteOpenHelper {
                "\"  AND " + EMAIL_COL + "= \"" + c.getEmail() +
                "\"  AND " + PHONE_COL + "= \""+ c.getTel() + "\"";
        db.execSQL(queryDel);
+       db.close();
+    }
+
+    public void deleteSupplider(Supplier s ){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "DELETE FROM " + TABLE_SUPPLIER + " WHERE " + ID_COL+ " = " +s.getId();
+        db.execSQL(query);
+        db.close();
     }
 
 

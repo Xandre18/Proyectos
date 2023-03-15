@@ -13,7 +13,17 @@ public class Supplier {
         this.address = address;
     }
 
+    public Supplier( String product, String company, String email, String tlfn, String address) {
+        this.product = product;
+        this.company = company;
+        this.email = email;
+        this.tlfn = tlfn;
+        this.address = address;
+    }
 
+    public int getId() {
+        return id;
+    }
 
     public String getProduct() {
         return product;
