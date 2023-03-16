@@ -20,7 +20,7 @@ public class Portada extends AppCompatActivity {
         portada = findViewById(R.id.portada);
         //Ocultar toolbar
         getSupportActionBar().hide();
-
+        //Timer para que si el usuario no hace clic en la pantalla pasar de activity
         Timer t = new Timer();
 
         t.schedule(new TimerTask() {
@@ -32,7 +32,7 @@ public class Portada extends AppCompatActivity {
                 finish();
             }
         },4000);
-
+        //Pasa de activity si el usuario hace click en la pantalla
         portada.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

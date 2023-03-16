@@ -3,6 +3,7 @@ package com.example.proyectoerp.objects;
 public class Supplier {
     String product , company , email, tlfn, address;
     int id;
+    //Constructor
 
     public Supplier(int id, String product, String company, String email, String tlfn, String address) {
         this.id = id;
@@ -20,6 +21,7 @@ public class Supplier {
         this.tlfn = tlfn;
         this.address = address;
     }
+    //Getters y setters
 
     public int getId() {
         return id;

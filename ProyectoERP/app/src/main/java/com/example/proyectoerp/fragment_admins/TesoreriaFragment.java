@@ -40,21 +40,21 @@ public class TesoreriaFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        // Inflar el layout del fragmento
+        v = inflater.inflate(R.layout.fragment_tesoreria, container, false);
+        lv = v.findViewById(R.id.lvTesoreria);
 
-         v = inflater.inflate(R.layout.fragment_tesoreria, container, false);
-         lv = v.findViewById(R.id.lvTesoreria);
+        handler = new DBHandler(v.getContext());
 
-         handler = new DBHandler(v.getContext());
-
-
+        // Verificar si el balance inicial ya fue ingresado
         SharedPreferences initBalance = getContext().getSharedPreferences("iniBalance", Context.MODE_PRIVATE);
         if(!initBalance.getBoolean("iniBalance", false)){
-            showDialog();
+            showDialog(); // Si no ha sido ingresado, mostrar diálogo para ingresar balance inicial
             SharedPreferences.Editor editor = initBalance.edit();
             editor.putBoolean("iniBalance", true);
             editor.commit();
         }else{
+            // Si el balance ya ha sido ingresado, mostrar la lista de cuentas existentes
             contList = handler.readCont();
             ca = new CountAdapter(v.getContext(),R.layout.tesoreria_list_item,contList);
             lv.setAdapter(ca);

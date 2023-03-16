@@ -3,7 +3,7 @@ package com.example.proyectoerp.objects;
 public class Cliente {
     String nombre, apellido, edad, email;
     int tel;
-
+    //Constructor
     public Cliente(String nombre, String apellido, String edad, String email, int tel) {
         this.nombre = nombre;
         this.apellido = apellido;
@@ -11,7 +11,7 @@ public class Cliente {
         this.email = email;
         this.tel = tel;
     }
-
+    //Getters y setters
     public String getNombre() {
         return nombre;
     }

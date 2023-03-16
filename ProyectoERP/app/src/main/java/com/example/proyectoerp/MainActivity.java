@@ -35,9 +35,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Comprueba si el usuario es un admin
         SharedPreferences pref = getSharedPreferences("admin", Context.MODE_PRIVATE);
         Boolean isadmin = pref.getBoolean("isAdmin", false);
+
         if(isadmin){
+            // Configura la barra de herramientas y el cajón de navegación
             Toolbar toolbar = findViewById(R.id.toolbar);
             setSupportActionBar(toolbar);
 
@@ -50,11 +54,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             drawerLayout.addDrawerListener(toggle);
             toggle.syncState();
 
+            // Establece el fragmento de inicio y selecciona el elemento del menú correspondiente
             if (savedInstanceState == null) {
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
                 navigationView.setCheckedItem(R.id.nav_home);
             }
 
+            // Configura el encabezado del cajón de navegación
             View headerView = navigationView.inflateHeaderView(R.layout.nav_header);
             userName = headerView.findViewById(R.id.user);
             correo = headerView.findViewById(R.id.correo);
@@ -66,18 +72,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             userName.setText(user.toUpperCase(Locale.ROOT));
             correo.setText(user +  "@gmail.com");
 
-
-
-        }else{
+        } else {
+            // Muestra un mensaje si el usuario no es un admin
             Toast.makeText(this, "juan", Toast.LENGTH_SHORT).show();
-
         }
-
-
-
-
     }
 
+    // Maneja los eventos de selección de elementos del menú del cajón de navegación
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.nav_home:

@@ -2,12 +2,13 @@ package com.example.proyectoerp.objects;
 
 public class ContControler {
     private int id, mount, balance;
-
+    //Constructor
     public ContControler(int id, int mount, int balance) {
         this.id = id;
         this.mount = mount;
         this.balance = balance;
     }
+    //Getters y setters
 
     public ContControler(int balance) {
         this.balance = balance;

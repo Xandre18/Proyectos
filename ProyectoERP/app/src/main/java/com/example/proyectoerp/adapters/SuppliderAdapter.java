@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-
 import com.example.proyectoerp.R;
 import com.example.proyectoerp.objects.Supplier;
 
@@ -45,8 +44,8 @@ public class SuppliderAdapter extends BaseAdapter {
         if(convertView == null){
             convertView = LayoutInflater.from(this.c).inflate(this.layout,parent,false);
         }
+        // Obtenemos los TextViews de la vista inflada
         TextView tvId, tvComapñia, tvTel, tvEmail, tvDir, tvProducto;
-
         tvId = convertView.findViewById(R.id.tvId);
         tvComapñia = convertView.findViewById(R.id.tvCompany);
         tvTel = convertView.findViewById(R.id.tvTelf);
@@ -54,6 +53,7 @@ public class SuppliderAdapter extends BaseAdapter {
         tvDir = convertView.findViewById(R.id.tvAddress);
         tvProducto = convertView.findViewById(R.id.tvProducto);
 
+        // Establecemos los valores correspondientes en los TextViews
         tvId.setText("ID: " + s.getId());
         tvComapñia.setText("Comp. " + s.getCompany());
         tvTel.setText("Tlf: " + s.getTlfn());
@@ -61,7 +61,7 @@ public class SuppliderAdapter extends BaseAdapter {
         tvDir.setText("Dirección: " + s.getAddress());
         tvProducto.setText("Prod. " + s.getProduct());
 
-
+        // Devolvemos la vista inflada con los datos actualizados
         return convertView;
     }
 }

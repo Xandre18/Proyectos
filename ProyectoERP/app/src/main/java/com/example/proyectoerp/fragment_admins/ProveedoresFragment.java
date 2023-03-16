@@ -33,8 +33,8 @@ import com.example.proyectoerp.objects.Supplier;
 import java.util.ArrayList;
 
 
-public class ProveedoresFragment extends Fragment {
 
+public class ProveedoresFragment extends Fragment {
     View v;
     DBHandler handler;
     ListView lv;
@@ -46,41 +46,69 @@ public class ProveedoresFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         v = inflater.inflate(R.layout.fragment_proveedores, container, false);
+
+        // Indica que este fragment tiene un menú
         setHasOptionsMenu(true);
+
+        // Obtiene la ListView del layout
         lv = v.findViewById(R.id.lvSupplier);
+
+        // Obtiene el contexto del fragment
         Context c = v.getContext();
+
+        // Crea una instancia de la clase DBHandler
         handler = new DBHandler(c);
+
+        // Lee los proveedores de la base de datos
         supList = handler.readSupplier();
+
+        // Crea un adaptador para la ListView
         sa = new SuppliderAdapter(c,R.layout.supplier_list_item,supList);
+
+        // Establece el adaptador a la ListView
         lv.setAdapter(sa);
+
+        // Establece que la ListView es clickable
         lv.setClickable(true);
 
+        // Listener para cuando se hace clic en un proveedor de la lista
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // Obtiene el proveedor seleccionado
                 Supplier s = supList.get(position);
+
+                // Obtiene los datos del proveedor
                 String compañia = s.getCompany();
                 String tlf = s.getTlfn();
                 String email = s.getEmail();
                 String dir = s.getAddress();
                 String producto = s.getProduct();
                 int ident = s.getId();
+
+                // Crea un intent para abrir la actividad de edición de proveedores
                 Intent intent = new Intent(v.getContext(), EditSupplider.class);
+
+                // Agrega los datos del proveedor al intent
                 intent.putExtra("id", ident);
                 intent.putExtra("comp", compañia);
                 intent.putExtra("tlf" , tlf);
                 intent.putExtra("mail", email);
                 intent.putExtra("dir", dir);
                 intent.putExtra("prod", producto);
+
+                // Limpia la pila de actividades y abre la actividad de edición de proveedores
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }
         });
 
+        // Listener para cuando se hace clic largo en un proveedor de la lista
         lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 Supplier s = supList.get(position);
+                //Pide confirmacion para eliminar
                 confirmDelete(s);
 
                 return true;

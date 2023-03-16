@@ -49,9 +49,9 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String ADDRESS_COL = "address";
     private static ArrayList<Supplier> supList;
 
-
+    //Constructor
    public DBHandler(Context context){super(context, DB_NAME, null, DB_VERSION);}
-
+    //Crea la base de datos
     @Override
     public void onCreate(SQLiteDatabase db) {
         String query_Users = "CREATE TABLE " + TABLE_USERS + "(" +
@@ -86,6 +86,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
     }
 
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
             db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
@@ -94,7 +95,7 @@ public class DBHandler extends SQLiteOpenHelper {
             db.execSQL("DROP TABLE IF EXISTS " + TABLE_SUPPLIER);
     }
 
-
+    //Devuelve un array list con todos los proveedores
     public ArrayList<Supplier> readSupplier(){
        supList= new ArrayList<>();
        SQLiteDatabase db = this.getWritableDatabase();
@@ -107,6 +108,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
        return supList;
     }
+    //Devuelve un array list con todos los movimientos de la contabilidad
     public ArrayList<ContControler> readCont(){
         contList = new ArrayList<>();
         SQLiteDatabase db = this.getWritableDatabase();
@@ -119,7 +121,7 @@ public class DBHandler extends SQLiteOpenHelper {
         return contList;
     }
 
-
+    //Devuelve un array list con todos los clientes
     public ArrayList<Cliente> readCustomer(){
        customerList = new ArrayList<>();
        SQLiteDatabase db = this.getWritableDatabase();
@@ -132,7 +134,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
        return customerList;
     }
-
+    //Añade a la base de datos un proveedor
     public void addSupplier(Supplier s){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -144,7 +146,7 @@ public class DBHandler extends SQLiteOpenHelper {
         db.insert(TABLE_SUPPLIER,null,values);
         db.close();
     }
-
+    //Añade a la base de datos un cliente
     public void addCustomer(Cliente cliente){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -157,6 +159,7 @@ public class DBHandler extends SQLiteOpenHelper {
         db.close();
     }
 
+    //Actualiza un cliente de la base de datos
     public void updateCustomer(int tlfOriginal, Cliente c ){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -169,7 +172,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
         db.update(TABLE_CUSTOMER, values, PHONE_COL+ "=" +tlfOriginal, null);
     }
-
+    //Actualiza un proveedor de la base de datos
     public void updateSupplider(int idOriginal, Supplier s){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -183,7 +186,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
 
     }
-
+    //Elimina un cliente de la base de datos
     public void deleteCustomer(Cliente c){
        SQLiteDatabase db = this.getWritableDatabase();
        String queryDel = "DELETE FROM " + TABLE_CUSTOMER +
@@ -195,7 +198,7 @@ public class DBHandler extends SQLiteOpenHelper {
        db.execSQL(queryDel);
        db.close();
     }
-
+    //Elimina un proveedor de la base de datos
     public void deleteSupplider(Supplier s ){
         SQLiteDatabase db = this.getWritableDatabase();
         String query = "DELETE FROM " + TABLE_SUPPLIER + " WHERE " + ID_COL+ " = " +s.getId();
@@ -204,7 +207,7 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
 
-
+    //Añade a la base de datos un moviento en el apartado de contabilidad
     public void addCont(ContControler cc) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -218,7 +221,7 @@ public class DBHandler extends SQLiteOpenHelper {
         db.insert(TABLE_CONT, null, values);
         db.close();
     }
-
+    //En caso de que no haya nada en la tabla de contabilidad añade la primera fila
     public void addFistCont(ContControler contControler){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -228,6 +231,7 @@ public class DBHandler extends SQLiteOpenHelper {
         db.close();
     }
 
+    //Devuelve un array list con todos los usuarios registrados en la aplicacion
     public ArrayList<User> leerUsers(){
        userList = new ArrayList<>();
        SQLiteDatabase db = this.getWritableDatabase();
@@ -245,7 +249,7 @@ public class DBHandler extends SQLiteOpenHelper {
         c.close();
        return userList;
     }
-
+    //añade a la base de datos un Usuario
     public void addUser(User u){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();

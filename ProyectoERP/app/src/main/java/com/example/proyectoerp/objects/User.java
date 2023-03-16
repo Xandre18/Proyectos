@@ -4,6 +4,7 @@ public class User {
 
     private String name , paswd;
     private boolean admin;
+    //Constructor
 
     public User(String name, String paswd, Boolean admin) {
         this.name = name;
@@ -11,7 +12,7 @@ public class User {
         this.admin = admin;
 
     }
-
+    //Getters y setters
     public boolean isAdmin() {
         return admin;
     }

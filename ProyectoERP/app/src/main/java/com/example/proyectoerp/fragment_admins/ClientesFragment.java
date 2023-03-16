@@ -30,6 +30,7 @@ import java.util.ArrayList;
 
 public class ClientesFragment extends Fragment {
 
+    // Variables de clase
     View v;
     DBHandler handler;
     ArrayList<Cliente> customerList;
@@ -39,26 +40,39 @@ public class ClientesFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        // Indica que este fragmento tiene su propio menú
         setHasOptionsMenu(true);
         v = inflater.inflate(R.layout.fragment_clientes, container, false);
         lv = v.findViewById(R.id.lvClientes);
 
+        // Crea una instancia de la base de datos
         handler = new DBHandler(v.getContext());
+
+        // Obtiene la lista de clientes de la base de datos
         customerList = handler.readCustomer();
+
+        // Crea un adaptador para la lista de clientes y lo asigna al ListView
         ca = new CustomerAdapter(v.getContext(),R.layout.cliente_list_item,customerList);
         lv.setAdapter(ca);
 
+        // Configura el ListView para que sea clickable
         lv.setClickable(true);
 
+        // Configura la acción que se ejecuta cuando se hace clic en un elemento de la lista
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // Obtiene el cliente seleccionado
                 Cliente c = customerList.get(position);
+
+                // Obtiene los datos del cliente seleccionado
                 String nombre = c.getNombre();
                 String apellido = c.getApellido();
                 String edad = c.getEdad();
                 int tlf = c.getTel();
                 String email = c.getEmail();
+
+                // Crea un intent para abrir la actividad de edición de cliente y le pasa los datos del cliente
                 Intent intent = new Intent(v.getContext(), EditCustomer.class);
                 intent.putExtra("nom", nombre);
                 intent.putExtra("ape" , apellido);
@@ -67,25 +81,24 @@ public class ClientesFragment extends Fragment {
                 intent.putExtra("mail", email);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
-
             }
         });
 
+        // Configura la acción que se ejecuta cuando se hace una pulsación larga en un elemento de la lista
         lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-
+                // Obtiene el cliente seleccionado
                 Cliente c = customerList.get(position);
 
+                // Pide confirmación para eliminar el cliente seleccionado
                 confirfDelete(c);
-
 
                 return true;
             }
         });
         return v;
     }
-
     public void confirfDelete(Cliente c){
         new AlertDialog.Builder(v.getContext())
                 .setTitle("¡¡¡¡SEGURO!!!!")

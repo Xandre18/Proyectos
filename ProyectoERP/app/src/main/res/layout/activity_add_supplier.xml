@@ -64,6 +64,7 @@
             android:id="@+id/inputEmail"
             android:layout_width="match_parent"
             android:layout_height="48dp"
+            android:inputType="textEmailAddress"
             android:hint="Introuzca email de la compañia....."/>
 
         <Space
