@@ -8,4 +8,13 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="back">Volver</string>
+
+
+    <string-array name="selectorDestinatarios">
+        <item>Administradores</item>
+        <item>Proveedores</item>
+        <item>Clientes</item>
+        <item>Usuarios</item>
+        <item>Todos</item>
+    </string-array>
 </resources>

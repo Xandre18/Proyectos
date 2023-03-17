@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         } else {
             // Muestra un mensaje si el usuario no es un admin
-            Toast.makeText(this, "juan", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Futuras implementaciones de la aplicacion", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -98,6 +98,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.nav_settings:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SettingsFragment()).commit();
+                break;
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;

@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.proyectoerp.fragment_admins.ClientesFragment;
 import com.example.proyectoerp.objects.Cliente;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -18,6 +19,7 @@ public class AddCustomer extends AppCompatActivity {
     FloatingActionButton addCustomer;
     EditText inputNombre,  inputApellido,inputEdad, inputTel, inputEmail;
     DBHandler handler;
+    ArrayList<Cliente> customerList;
 
     // Método que se ejecuta al crear la actividad
     @Override
@@ -32,42 +34,59 @@ public class AddCustomer extends AppCompatActivity {
         inputEdad = findViewById(R.id.inputEdad);
         inputTel = findViewById(R.id.inputTel);
         inputEmail = findViewById(R.id.inputEmail);
-
+        handler = new DBHandler(AddCustomer.this);
+        customerList = handler.readCustomer();
         // Acción que se realiza al pulsar el botón de añadir cliente
         addCustomer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                boolean ok = true;
+                String nombre = inputNombre.getText().toString();
+                String apellido = inputApellido.getText().toString();
+                String edad = inputEdad.getText().toString();
+                String email = inputEmail.getText().toString();
+                int tel = Integer.parseInt(inputTel.getText().toString());
 
-                // Verificación de que los campos están completos
-                if(inputNombre.getText().toString().isEmpty() || inputApellido.getText().toString().isEmpty() || inputEdad.getText().toString().isEmpty()
-                        || inputEmail.getText().toString().isEmpty() || inputTel.getText().toString().isEmpty()){
-                    Toast.makeText(AddCustomer.this, "Faltan requisitos por rellenar", Toast.LENGTH_LONG).show();
-                }else{
-                    // Creación de un nuevo cliente a partir de los datos introducidos
-                    String nombre = inputNombre.getText().toString();
-                    String apellido = inputApellido.getText().toString();
-                    String edad = inputEdad.getText().toString();
-                    String email = inputEmail.getText().toString();
-                    int tel = Integer.parseInt(inputTel.getText().toString());
-                    Cliente c = new Cliente(nombre, apellido, edad, email, tel);
-
-                    // Inserción del cliente en la base de datos
-                    handler = new DBHandler(AddCustomer.this);
-                    handler.addCustomer(c);
-
-                    // Mensaje de éxito y borrado de los campos
-                    Toast.makeText(AddCustomer.this, "Añadido correctamente", Toast.LENGTH_SHORT).show();
-                    inputNombre.setText("");
-                    inputApellido.setText("");
-                    inputEdad.setText("");
-                    inputTel.setText("");
-                    inputEmail.setText("");
-
-                    // Redirección a la actividad principal
-                    Intent intent = new Intent(AddCustomer.this, MainActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(intent);
+                for(int i = 0; i< customerList.size();i++){
+                    if(tel == customerList.get(i).getTel()){
+                        ok = false;
+                    }
                 }
+
+                if(!ok){
+                    Toast.makeText(AddCustomer.this, "No puede haber 2 clientes con el mismo numero", Toast.LENGTH_SHORT).show();
+                    inputTel.setText("");
+                }else{
+                    // Verificación de que los campos están completos
+                    if(inputNombre.getText().toString().isEmpty() || inputApellido.getText().toString().isEmpty() || inputEdad.getText().toString().isEmpty()
+                            || inputEmail.getText().toString().isEmpty() || inputTel.getText().toString().isEmpty()){
+                        Toast.makeText(AddCustomer.this, "Faltan requisitos por rellenar", Toast.LENGTH_LONG).show();
+                    }else{
+                        // Creación de un nuevo cliente a partir de los datos introducidos
+                        Cliente c = new Cliente(nombre, apellido, edad, email, tel);
+                        // Inserción del cliente en la base de datos
+                        //handler = new DBHandler(AddCustomer.this);
+                        handler.addCustomer(c);
+
+                        // Mensaje de éxito y borrado de los campos
+                        Toast.makeText(AddCustomer.this, "Añadido correctamente", Toast.LENGTH_SHORT).show();
+                        inputNombre.setText("");
+                        inputApellido.setText("");
+                        inputEdad.setText("");
+                        inputTel.setText("");
+                        inputEmail.setText("");
+
+                        // Redirección a la actividad principal
+                        Intent intent = new Intent(AddCustomer.this, MainActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(intent);
+                    }
+
+
+                }
+
+
+
             }
         });
     }

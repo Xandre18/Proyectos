@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import com.example.proyectoerp.fragment_admins.ProveedoresFragment;
 import com.example.proyectoerp.objects.Supplier;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -66,7 +67,7 @@ public class EditSupplider extends AppCompatActivity {
                 handler.updateSupplider(original,s);
 
                 // Se crea un Intent para regresar a la actividad principal y se agrega la bandera FLAG_ACTIVITY_CLEAR_TOP para borrar la pila de actividades
-                Intent intent = new Intent(EditSupplider.this, MainActivity.class);
+                Intent intent = new Intent(EditSupplider.this, ProveedoresFragment.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
 

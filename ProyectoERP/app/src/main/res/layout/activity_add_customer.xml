@@ -30,10 +30,12 @@
                 android:layout_width="25dp"
                 android:layout_height="15dp"
                 android:src="@drawable/pasos"/>
+
             <EditText
                 android:id="@+id/inputNombre"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
         </LinearLayout>
 
         <Space
@@ -56,10 +58,12 @@
                 android:layout_width="25dp"
                 android:layout_height="15dp"
                 android:src="@drawable/pasos"/>
+
             <EditText
                 android:id="@+id/inputApellido"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="48dp"
+                tools:ignore="SpeakableTextPresentCheck" />
 
         </LinearLayout>
         <Space
@@ -100,7 +104,8 @@
                         android:id="@+id/inputEdad"
                         android:layout_width="35dp"
                         android:layout_height="45dp"
-                        android:inputType="number" />
+                        android:inputType="number"
+                        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
                 </LinearLayout>
 
@@ -128,11 +133,13 @@
                         android:layout_height="45dp"
                         android:src="@drawable/phone"
                         android:layout_marginStart="15dp"/>
+
                     <EditText
                         android:id="@+id/inputTel"
-                        android:inputType="number"
                         android:layout_width="match_parent"
-                        android:layout_height="45dp"/>
+                        android:layout_height="45dp"
+                        android:inputType="number"
+                        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
                 </LinearLayout>
             </LinearLayout>
     </LinearLayout>
@@ -158,11 +165,13 @@
                 android:layout_height="35dp"
                 android:src="@drawable/arroba"
                 android:layout_gravity="center"/>
+
             <EditText
                 android:id="@+id/inputEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"/>
+                android:inputType="textEmailAddress"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
         </LinearLayout>
         <Space
             android:layout_width="match_parent"
