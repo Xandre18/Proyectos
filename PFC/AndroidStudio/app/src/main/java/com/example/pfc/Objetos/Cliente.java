@@ -2,8 +2,35 @@ package com.example.pfc.Objetos;
 
 public class Cliente {
     int id;
-    String dni , tlf, nombre , apellido, email , direccion, usuario, contraseña;
+    String dni , tlf, nombre , apellido, email , direccion, usuario, contrasenha;
     boolean admin;
+
+    //Constructor para registrarse
+    public Cliente(int id, String dni, String tlf, String nombre, String apellido, String email, String direccion, String usuario, String contrasenha) {
+        this.id = id;
+        this.dni = dni;
+        this.tlf = tlf;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.email = email;
+        this.direccion = direccion;
+        this.usuario = usuario;
+        this.contrasenha = contrasenha;
+    }
+
+    //Constructor para añadir admin
+    public Cliente(int id, String dni, String tlf, String nombre, String apellido, String email, String direccion, String usuario, String contrasenha, boolean admin) {
+        this.id = id;
+        this.dni = dni;
+        this.tlf = tlf;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.email = email;
+        this.direccion = direccion;
+        this.usuario = usuario;
+        this.contrasenha = contrasenha;
+        this.admin = admin;
+    }
 
     public int getId() {
         return id;
@@ -70,11 +97,11 @@ public class Cliente {
     }
 
     public String getContraseña() {
-        return contraseña;
+        return contrasenha;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setContraseña(String contrasenha) {
+        this.contrasenha = contrasenha;
     }
 
     public boolean isAdmin() {
