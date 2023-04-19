@@ -1,6 +1,7 @@
 package com.example.pfc.BaseDatos;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -25,6 +26,7 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String DIRECCION_COL = "dir";
     private static final String USUARIO_COL = "user";
     private static final String CONTRASENHA_COL = "pwd";
+    private static final String ADMIN_COL = "admin";
     private static ArrayList<Cliente> listaClientes;
 
     //Tabla Venta
@@ -54,12 +56,66 @@ public class DBHandler extends SQLiteOpenHelper {
 
 
     @Override
-    public void onCreate(SQLiteDatabase sqLiteDatabase) {
+    public void onCreate(SQLiteDatabase db) {
+        String query_Cliente = "CREATE TABLE " + TABLA_CLIENTE + "(" +
+                IDCLIENTE_COL + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                DNI_COL + " TEXT NOT NULL," +
+                TLF_COL + " TEXT NOT NULL," +
+                NOMBRE_COL + " TEXT NOT NULL," +
+                EMAIL_COL + " TEXT NOT NULL," +
+                DIRECCION_COL  + " TEXT NOT NULL," +
+                USUARIO_COL  + " TEXT NOT NULL," +
+                CONTRASENHA_COL + " TEXT NOT NULL," +
+                ADMIN_COL + " INTEGER " +
+                ")";
+        db.execSQL(query_Cliente);
+
+        String query_Venta = "CREATE TABLE " + TABLA_VENTA + "(" +
+                CODIGO_COL  + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                FECHA_COL + " TEXT NOT NULL," +
+                CLIENTE_COL +" INTEGER NOT NULL REFERENCES "+ TABLA_CLIENTE +
+                ")";
+        db.execSQL(query_Venta);
+
+        String query_Producto = "CREATE TABLE " + TABLA_PRODUCTO + "(" +
+                REF_COL + " INTEGER NOT NULL," +
+                IDPRODUCTO_COL  + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                STOCk_COL + " INTEGER NOT NULL," +
+                PRECIO_COL + " INTEGER NOT NULL" +
+                ")";
+        db.execSQL(query_Producto);
+
+        String query_ProductoVenta = "CREATE TABLE " + TABLA_PROD_VENT + "(" +
+                COD_VENTA_COL +" INTEGER NOT NULL REFERENCES "+ TABLA_CLIENTE +", "+
+                ID_PROD +" INTEGER NOT NULL REFERENCES "+ TABLA_PRODUCTO +", "+
+                CANTIDAD_COL  +" INTEGER NOT NULL "+
+                ")";
+        db.execSQL(query_ProductoVenta);
+
 
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+    public void onUpgrade(SQLiteDatabase db, int i, int i1) {
+        db.execSQL("DROP TABLE IF EXISTS " + TABLA_CLIENTE);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLA_VENTA);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLA_PRODUCTO);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLA_PROD_VENT);
+        onCreate(db);
+    }
 
+    public ArrayList<Cliente> getClientes(){
+        listaClientes = new ArrayList<>();
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor c = db.rawQuery("SELECT * FROM " + TABLA_CLIENTE, null);
+        if(c.moveToNext()){
+            do{
+                boolean admin;
+                if(c.getInt(9) == 1) admin = true;
+                else admin = false;
+                listaClientes.add(new Cliente(c.getInt(0),c.getString(1),c.getString(2),c.getString(3),c.getString(4),c.getString(5),c.getString(6),c.getString(7),c.getString(8),admin));
+            }while(c.moveToNext());
+        }
+        return listaClientes;
     }
 }

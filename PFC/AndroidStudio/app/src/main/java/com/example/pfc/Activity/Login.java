@@ -1,6 +1,8 @@
 package com.example.pfc.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.pfc.BaseDatos.DBHandler;
 import com.example.pfc.R;
 
 import android.os.Bundle;
@@ -11,5 +13,7 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        getSupportActionBar().hide();
     }
 }
