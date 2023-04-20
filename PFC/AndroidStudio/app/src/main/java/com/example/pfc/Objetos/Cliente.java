@@ -32,27 +32,6 @@ public class Cliente {
         this.contrasenha = contrasenha;
         this.admin = admin;
     }
-//    String query_Cliente = "CREATE TABLE " + TABLA_CLIENTE + "(" +
-//            IDCLIENTE_COL + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-//            DNI_COL + " TEXT NOT NULL," +
-//            TLF_COL + " TEXT NOT NULL," +
-//            NOMBRE_COL + " TEXT NOT NULL," +
-//            EMAIL_COL + " TEXT NOT NULL," +
-//            DIRECCION_COL  + " TEXT NOT NULL," +
-//            USUARIO_COL  + " TEXT NOT NULL," +
-//            CONTRASENHA_COL + " TEXT NOT NULL" +
-//            ")";
-//        db.execSQL(query_Cliente);
-
-
-
-
-
-
-
-
-
-
     public int getId() {
         return id;
     }

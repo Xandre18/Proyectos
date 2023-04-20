@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">PFC</string>
+    <string name="userName">Nombre de usuario</string>
 </resources>

@@ -20,4 +20,5 @@
         app:lottie_repeatMode="restart"
         tools:ignore="ImageContrastCheck" />
 
+
 </androidx.constraintlayout.widget.ConstraintLayout>
