@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">PFC</string>
     <string name="userName">Nombre de usuario</string>
+    <string name="pwd">Contraseña</string>
+    <string name="epwd">Contraseña........</string>
+    <string name="iuserName">Nombre de usuario..........</string>
 </resources>
