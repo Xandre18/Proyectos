@@ -6,8 +6,8 @@ public class Cliente {
     boolean admin;
 
     //Constructor para registrarse
-    public Cliente(int id, String dni, String tlf, String nombre, String apellido, String email, String direccion, String usuario, String contrasenha) {
-        this.id = id;
+    public Cliente( String dni, String tlf, String nombre, String apellido, String email, String direccion, String usuario, String contrasenha) {
+
         this.dni = dni;
         this.tlf = tlf;
         this.nombre = nombre;
@@ -18,10 +18,21 @@ public class Cliente {
         this.contrasenha = contrasenha;
         this.admin = false;
     }
+    public Cliente( int id ,String dni, String tlf, String nombre, String apellido, String email, String direccion, String usuario, String contrasenha, boolean admin) {
+        this.id = id;
+        this.dni = dni;
+        this.tlf = tlf;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.email = email;
+        this.direccion = direccion;
+        this.usuario = usuario;
+        this.contrasenha = contrasenha;
+        this.admin = admin;
+    }
 
     //Constructor para añadir admin
-    public Cliente(int id, String dni, String tlf, String nombre, String apellido, String email, String direccion, String usuario, String contrasenha, boolean admin) {
-        this.id = id;
+    public Cliente(String dni, String tlf, String nombre, String apellido, String email, String direccion, String usuario, String contrasenha, boolean admin) {
         this.dni = dni;
         this.tlf = tlf;
         this.nombre = nombre;

@@ -1,5 +1,6 @@
 package com.example.pfc.BaseDatos;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -22,6 +23,7 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String DNI_COL = "dni";
     private static final String TLF_COL = "tlf";
     private static final String NOMBRE_COL = "nombre";
+    private static final String APELLIDO_COL = "apellido";
     private static final String EMAIL_COL = "email";
     private static final String DIRECCION_COL = "dir";
     private static final String USUARIO_COL = "user";
@@ -62,6 +64,7 @@ public class DBHandler extends SQLiteOpenHelper {
                 DNI_COL + " TEXT NOT NULL," +
                 TLF_COL + " TEXT NOT NULL," +
                 NOMBRE_COL + " TEXT NOT NULL," +
+                APELLIDO_COL + " TEXT NOT NULL," +
                 EMAIL_COL + " TEXT NOT NULL," +
                 DIRECCION_COL  + " TEXT NOT NULL," +
                 USUARIO_COL  + " TEXT NOT NULL," +
@@ -113,9 +116,26 @@ public class DBHandler extends SQLiteOpenHelper {
                 boolean admin;
                 if(c.getInt(9) == 1) admin = true;
                 else admin = false;
-                listaClientes.add(new Cliente(c.getInt(0),c.getString(1),c.getString(2),c.getString(3),c.getString(4),c.getString(5),c.getString(6),c.getString(7),c.getString(8),admin));
+                Cliente cliente = new Cliente(c.getInt(0), c.getString(1), c.getString(2), c.getString(3),c.getString(4),c.getString(5),c.getString(6),c.getString(7),c.getString(8), admin);
+                listaClientes.add(cliente);
             }while(c.moveToNext());
         }
         return listaClientes;
+    }
+    public void addCliente(Cliente c){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(DNI_COL, c.getDni());
+        values.put(TLF_COL,c.getTlf());
+        values.put(NOMBRE_COL, c.getNombre());
+        values.put(APELLIDO_COL, c.getApellido());
+        values.put(EMAIL_COL, c.getEmail());
+        values.put(DIRECCION_COL, c.getDireccion());
+        values.put(USUARIO_COL, c.getUsuario());
+        values.put(CONTRASENHA_COL, c.getContraseña());
+        values.put(ADMIN_COL, c.isAdmin());
+
+        db.insert(TABLA_CLIENTE, null, values);
+        db.close();
     }
 }
