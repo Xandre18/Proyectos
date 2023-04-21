@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.pfc" >
+    package="com.example.pfc">
 
     <application
         android:allowBackup="true"
@@ -13,10 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PFC"
-        tools:targetApi="31" >
-        <activity
-            android:name=".AddCliente"
-            android:exported="false" />
+        tools:targetApi="31">
+
         <activity
             android:name=".Activity.MainActivity"
             android:exported="false" />
@@ -25,9 +23,12 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".Activity.AddCliente"
+            android:exported="false" />
+        <activity
             android:name=".Activity.Portada"
             android:exported="true"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

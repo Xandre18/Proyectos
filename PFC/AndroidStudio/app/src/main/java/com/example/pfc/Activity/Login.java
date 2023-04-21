@@ -13,6 +13,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -22,6 +23,7 @@ public class Login extends AppCompatActivity {
     FloatingActionButton btnLogin;
     DBHandler dbHandler;
     ArrayList<Cliente> cList;
+    ImageView registro;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +45,7 @@ public class Login extends AppCompatActivity {
         eUsuario = findViewById(R.id.eUsuario);
         ePwd = findViewById(R.id.epwd);
         btnLogin = findViewById(R.id.login);
+        registro = findViewById(R.id.singUp);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,6 +67,10 @@ public class Login extends AppCompatActivity {
                             Toast.makeText(Login.this, "Inicio de sesion correcto", Toast.LENGTH_SHORT).show();
                             startActivity(intent);
 
+                        }else{
+                            //TODO: Programar el inicio de sesion de los usuarios que no son administradores
+
+
                         }
                     }else{
                         Toast.makeText(Login.this, "El usuario o la contraseña son incorrectos", Toast.LENGTH_SHORT).show();
@@ -71,6 +78,12 @@ public class Login extends AppCompatActivity {
                     }
                 }
             }
+        });
+
+        registro.setOnClickListener(view -> {
+            Intent intent = new Intent(Login.this, AddCliente.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
         });
 
 
