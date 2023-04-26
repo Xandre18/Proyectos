@@ -1,8 +1,20 @@
 <resources>
     <string name="app_name">PFC</string>
-    <string name="userName">Nombre de usuario</string>
-    <string name="pwd">Contraseña</string>
-    <string name="epwd">Contraseña........</string>
-    <string name="iuserName">Nombre de usuario..........</string>
+    <string name="userName">Nombre de usuario:</string>
+    <string name="pwd">Contraseña:</string>
+    <string name="epwd">Contraseña.......</string>
+    <string name="iuserName">Nombre de usuario.......</string>
     <string name="todo">todo</string>
+    <string name="dni">DNI:</string>
+    <string name="idni">DNI.......</string>
+    <string name="tlf">Telefono:</string>
+    <string name="etlf">Telefono.......</string>
+    <string name="nombre">Nombre:</string>
+    <string name="eNombre">Introduzca su nombre.......</string>
+    <string name="apellido">Apellido:</string>
+    <string name="eApellido">Introduzca el primer apellido.......</string>
+    <string name="mail">Email:</string>
+    <string name="eMail">Introduzca email.......</string>
+    <string name="direccion">Dirección:</string>
+    <string name="eDir">Introduzca dirección.......</string>
 </resources>

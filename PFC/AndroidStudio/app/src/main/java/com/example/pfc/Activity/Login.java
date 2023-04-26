@@ -44,7 +44,7 @@ public class Login extends AppCompatActivity {
         //Obteniendo los elementos de la vista
         eUsuario = findViewById(R.id.eUsuario);
         ePwd = findViewById(R.id.epwd);
-        btnLogin = findViewById(R.id.login);
+        btnLogin = findViewById(R.id.registrar);
         registro = findViewById(R.id.singUp);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
