@@ -55,9 +55,9 @@ public class AddCliente extends AppCompatActivity {
         });
 
         next.setOnClickListener(view -> {
-            getSupportActionBar().setTitle("Registro 2/2");
             uno.setVisibility(View.INVISIBLE);
             dos.setVisibility(View.VISIBLE);
+            getSupportActionBar().setTitle("Registro 2/2");
         });
 
         registrar.setOnClickListener(view -> {
