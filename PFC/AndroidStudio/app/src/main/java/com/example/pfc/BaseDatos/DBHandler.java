@@ -44,6 +44,7 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String IDPRODUCTO_COL = "idProd";
     private static final String STOCk_COL = "stock";
     private static final String PRECIO_COL = "precioUnidad";
+    private static final String IMG_COL = "img";
     private static ArrayList<Producto> listaProductos;
 
     //Tabla Productos-Venta
@@ -84,7 +85,8 @@ public class DBHandler extends SQLiteOpenHelper {
                 REF_COL + " INTEGER NOT NULL," +
                 IDPRODUCTO_COL  + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 STOCk_COL + " INTEGER NOT NULL," +
-                PRECIO_COL + " INTEGER NOT NULL" +
+                PRECIO_COL + " INTEGER NOT NULL," +
+                IMG_COL + " INTEGER NOT NULL" +
                 ")";
         db.execSQL(query_Producto);
 
@@ -144,7 +146,7 @@ public class DBHandler extends SQLiteOpenHelper {
         Cursor c = db.rawQuery("SELECT * FROM " + TABLA_PRODUCTO, null);
         if(c.moveToNext()){
             do{
-                Producto producto = new Producto(c.getInt(0), c.getInt(2), c.getInt(3));
+                Producto producto = new Producto(c.getInt(0), c.getInt(2), c.getInt(3), c.getInt(4));
                 listaProductos.add(producto);
             }while (c.moveToNext());
         }
@@ -157,6 +159,7 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(REF_COL, p.getRefNu());
         values.put(STOCk_COL,  p.getStock());
         values.put(PRECIO_COL, p.getPrecio());
+        values.put(IMG_COL, p.getImg());
         db.insert(TABLA_PRODUCTO, null, values);
         db.close();
     }

@@ -1,12 +1,13 @@
 package com.example.pfc.Objetos;
 
 public class Producto {
-    int refNu, id , stock, precio;
+    int refNu, id , stock, precio, img;
 
-    public Producto(int refNu, int stock, int precio) {
+    public Producto(int refNu, int stock, int precio, int img) {
         this.refNu = refNu;
         this.stock = stock;
         this.precio = precio;
+        this.img = img;
     }
 
     public int getRefNu() {
@@ -41,5 +42,11 @@ public class Producto {
         this.precio = precio;
     }
 
+    public int getImg() {
+        return img;
+    }
 
+    public void setImg(int img) {
+        this.img = img;
+    }
 }

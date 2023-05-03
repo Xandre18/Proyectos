@@ -12,13 +12,15 @@ import com.example.pfc.R;
 
 
 public class Inicio extends Fragment {
-
-
+    View v;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_inicio, container, false);
+        v = inflater.inflate(R.layout.fragment_inicio, container, false);
+        
+
+        return v;
     }
 }
