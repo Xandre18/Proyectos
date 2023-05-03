@@ -3,6 +3,7 @@ package com.example.pfc.Activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -29,7 +30,7 @@ public class AddCliente extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_cliente);
         getSupportActionBar().setTitle("Registro 1/2");
-
+        Toast.makeText(this, "Rellene las dos páginas del formulario para registrarse", Toast.LENGTH_SHORT).show();
         eDni = findViewById(R.id.eDni);
         eTlf = findViewById(R.id.etlf);
         eNombre = findViewById(R.id.eName);
@@ -83,6 +84,9 @@ public class AddCliente extends AppCompatActivity {
                     Cliente c = new Cliente(dni, tlf, nombre, apellido, email, direccion, usuario, contrasenha);
                     dbHandler.addCliente(c);
                     Toast.makeText(this, "Registro correcto", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(AddCliente.this, Login.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
                 }else{
                     if(!dniOk){
                         eDni.setText("");

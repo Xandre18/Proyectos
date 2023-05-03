@@ -3,9 +3,8 @@ package com.example.pfc.Objetos;
 public class Producto {
     int refNu, id , stock, precio;
 
-    public Producto(int refNu, int id, int stock, int precio) {
+    public Producto(int refNu, int stock, int precio) {
         this.refNu = refNu;
-        this.id = id;
         this.stock = stock;
         this.precio = precio;
     }

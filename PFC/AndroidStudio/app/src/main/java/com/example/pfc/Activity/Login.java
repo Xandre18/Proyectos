@@ -20,6 +20,7 @@ import java.util.ArrayList;
 
 public class Login extends AppCompatActivity {
     EditText eUsuario, ePwd;
+    boolean inexistente;
     FloatingActionButton btnLogin;
     DBHandler dbHandler;
     ArrayList<Cliente> cList;
@@ -61,22 +62,28 @@ public class Login extends AppCompatActivity {
                             editor.putBoolean("isAdmin",true);
                             editor.putString("user",cList.get(i).getUsuario());
                             editor.commit();
+                            inexistente = true;
 
                             //Limpiando el historial de actividades y comenzando la actividad MainActivity
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                            Toast.makeText(Login.this, "Inicio de sesion correcto", Toast.LENGTH_SHORT).show();
+                           // Toast.makeText(Login.this, "Inicio de sesion correcto", Toast.LENGTH_SHORT).show();
                             startActivity(intent);
 
                         }else{
+                            inexistente = true;
                             //TODO: Programar el inicio de sesion de los usuarios que no son administradores
 
 
                         }
-                    }else{
-                        Toast.makeText(Login.this, "El usuario o la contraseña son incorrectos", Toast.LENGTH_SHORT).show();
-                        Toast.makeText(Login.this, "Para registrarte utiliza el icono de arriba a la derecha", Toast.LENGTH_SHORT).show();
                     }
                 }
+                if(inexistente){
+                    Toast.makeText(Login.this, "Inicio de sesión correcto", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(Login.this, "El usuario o la contraseña son incorrectos", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Login.this, "Para registrarte utiliza el icono de arriba a la derecha", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
 

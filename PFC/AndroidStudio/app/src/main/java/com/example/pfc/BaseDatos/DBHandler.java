@@ -138,4 +138,27 @@ public class DBHandler extends SQLiteOpenHelper {
         db.insert(TABLA_CLIENTE, null, values);
         db.close();
     }
+    public ArrayList<Producto> getListaProductos(){
+        listaProductos = new ArrayList<>();
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor c = db.rawQuery("SELECT * FROM " + TABLA_PRODUCTO, null);
+        if(c.moveToNext()){
+            do{
+                Producto producto = new Producto(c.getInt(0), c.getInt(2), c.getInt(3));
+                listaProductos.add(producto);
+            }while (c.moveToNext());
+        }
+        return listaProductos;
+    }
+
+    public void addProducto(Producto p){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(REF_COL, p.getRefNu());
+        values.put(STOCk_COL,  p.getStock());
+        values.put(PRECIO_COL, p.getPrecio());
+        db.insert(TABLA_PRODUCTO, null, values);
+        db.close();
+    }
+
 }
