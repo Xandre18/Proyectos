@@ -29,6 +29,23 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        
+        init();
+        eventosOnClick();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        for(int i = 0; i< cList.size();i++){
+            if(cList.get(i).isSesion()){
+                dbHandler.setSesionCol(cList.get(i).getId(), false);
+            }
+        }
+
+    }
+
+    public void init(){
         getSupportActionBar().hide();
         dbHandler = new DBHandler(this);
         //Obteniendo el objeto de SharedPreferences con el nombre "itiUsers" y el modo privado
@@ -53,7 +70,9 @@ public class Login extends AppCompatActivity {
                 dbHandler.setSesionCol(cList.get(i).getId(), false);
             }
         }
+    }
 
+    public void eventosOnClick(){
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -73,7 +92,7 @@ public class Login extends AppCompatActivity {
 
                             //Limpiando el historial de actividades y comenzando la actividad MainActivity
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                           // Toast.makeText(Login.this, "Inicio de sesion correcto", Toast.LENGTH_SHORT).show();
+                            // Toast.makeText(Login.this, "Inicio de sesion correcto", Toast.LENGTH_SHORT).show();
                             startActivity(intent);
 
                         }else{
@@ -100,16 +119,5 @@ public class Login extends AppCompatActivity {
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
         });
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        for(int i = 0; i< cList.size();i++){
-            if(cList.get(i).isSesion()){
-                dbHandler.setSesionCol(cList.get(i).getId(), false);
-            }
-        }
-
     }
 }
