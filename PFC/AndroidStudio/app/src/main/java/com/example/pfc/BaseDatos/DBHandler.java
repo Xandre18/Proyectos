@@ -29,6 +29,7 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String USUARIO_COL = "user";
     private static final String CONTRASENHA_COL = "pwd";
     private static final String ADMIN_COL = "admin";
+    private static final String SESION_COL = "sesion";
     private static ArrayList<Cliente> listaClientes;
 
     //Tabla Venta
@@ -70,7 +71,8 @@ public class DBHandler extends SQLiteOpenHelper {
                 DIRECCION_COL  + " TEXT NOT NULL," +
                 USUARIO_COL  + " TEXT NOT NULL," +
                 CONTRASENHA_COL + " TEXT NOT NULL," +
-                ADMIN_COL + " INTEGER " +
+                ADMIN_COL + " INTEGER, " +
+                SESION_COL + " INTEGER " +
                 ")";
         db.execSQL(query_Cliente);
 
@@ -86,7 +88,8 @@ public class DBHandler extends SQLiteOpenHelper {
                 IDPRODUCTO_COL  + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 STOCk_COL + " INTEGER NOT NULL," +
                 PRECIO_COL + " INTEGER NOT NULL," +
-                IMG_COL + " INTEGER NOT NULL" +
+                IMG_COL + " INTEGER NOT NULL," +
+                NOMBRE_COL + " TEXT NOT NULL" +
                 ")";
         db.execSQL(query_Producto);
 
@@ -115,14 +118,24 @@ public class DBHandler extends SQLiteOpenHelper {
         Cursor c = db.rawQuery("SELECT * FROM " + TABLA_CLIENTE, null);
         if(c.moveToNext()){
             do{
-                boolean admin;
+                boolean admin , sesion;
                 if(c.getInt(9) == 1) admin = true;
                 else admin = false;
-                Cliente cliente = new Cliente(c.getInt(0), c.getString(1), c.getString(2), c.getString(3),c.getString(4),c.getString(5),c.getString(6),c.getString(7),c.getString(8), admin);
+
+                if(c.getInt(10) == 1) sesion = true;
+                else sesion = false;
+
+                Cliente cliente = new Cliente(c.getInt(0), c.getString(1), c.getString(2), c.getString(3),c.getString(4),c.getString(5),c.getString(6),c.getString(7),c.getString(8), admin, sesion);
                 listaClientes.add(cliente);
             }while(c.moveToNext());
         }
         return listaClientes;
+    }
+    public void setSesionCol(int idCliente, boolean sesion ){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(SESION_COL, sesion);
+        db.update(TABLA_CLIENTE, values, "id=?",new String[]{String.valueOf(idCliente)});
     }
     public void addCliente(Cliente c){
         SQLiteDatabase db = this.getWritableDatabase();
@@ -136,6 +149,7 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(USUARIO_COL, c.getUsuario());
         values.put(CONTRASENHA_COL, c.getContraseña());
         values.put(ADMIN_COL, c.isAdmin());
+        values.put(SESION_COL, c.isSesion());
 
         db.insert(TABLA_CLIENTE, null, values);
         db.close();
@@ -146,7 +160,7 @@ public class DBHandler extends SQLiteOpenHelper {
         Cursor c = db.rawQuery("SELECT * FROM " + TABLA_PRODUCTO, null);
         if(c.moveToNext()){
             do{
-                Producto producto = new Producto(c.getInt(0), c.getInt(2), c.getInt(3), c.getInt(4));
+                Producto producto = new Producto(c.getInt(0), c.getInt(2), c.getInt(3), c.getInt(4),c.getString(5));
                 listaProductos.add(producto);
             }while (c.moveToNext());
         }
@@ -160,6 +174,7 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(STOCk_COL,  p.getStock());
         values.put(PRECIO_COL, p.getPrecio());
         values.put(IMG_COL, p.getImg());
+        values.put(NOMBRE_COL, p.getNombre());
         db.insert(TABLA_PRODUCTO, null, values);
         db.close();
     }

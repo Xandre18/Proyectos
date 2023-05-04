@@ -3,7 +3,7 @@ package com.example.pfc.Objetos;
 public class Cliente {
     int id;
     String dni , tlf, nombre , apellido, email , direccion, usuario, contrasenha;
-    boolean admin;
+    boolean admin , sesion;
 
     //Constructor para registrarse
     public Cliente( String dni, String tlf, String nombre, String apellido, String email, String direccion, String usuario, String contrasenha) {
@@ -17,8 +17,9 @@ public class Cliente {
         this.usuario = usuario;
         this.contrasenha = contrasenha;
         this.admin = false;
+        this.sesion = false;
     }
-    public Cliente( int id ,String dni, String tlf, String nombre, String apellido, String email, String direccion, String usuario, String contrasenha, boolean admin) {
+    public Cliente( int id ,String dni, String tlf, String nombre, String apellido, String email, String direccion, String usuario, String contrasenha, boolean admin , boolean sesion) {
         this.id = id;
         this.dni = dni;
         this.tlf = tlf;
@@ -29,6 +30,7 @@ public class Cliente {
         this.usuario = usuario;
         this.contrasenha = contrasenha;
         this.admin = admin;
+        this.sesion = sesion;
     }
 
     //Constructor para añadir admin
@@ -42,6 +44,7 @@ public class Cliente {
         this.usuario = usuario;
         this.contrasenha = contrasenha;
         this.admin = admin;
+        this.sesion = false;
     }
     public int getId() {
         return id;
@@ -123,4 +126,19 @@ public class Cliente {
         this.admin = admin;
     }
 
+    public String getContrasenha() {
+        return contrasenha;
+    }
+
+    public void setContrasenha(String contrasenha) {
+        this.contrasenha = contrasenha;
+    }
+
+    public boolean isSesion() {
+        return sesion;
+    }
+
+    public void setSesion(boolean sesion) {
+        this.sesion = sesion;
+    }
 }

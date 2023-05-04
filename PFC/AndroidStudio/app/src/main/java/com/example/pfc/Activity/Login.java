@@ -48,6 +48,12 @@ public class Login extends AppCompatActivity {
         btnLogin = findViewById(R.id.registrar);
         registro = findViewById(R.id.singUp);
 
+        for(int i = 0; i< cList.size();i++){
+            if(cList.get(i).isSesion()){
+                dbHandler.setSesionCol(cList.get(i).getId(), false);
+            }
+        }
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -56,6 +62,7 @@ public class Login extends AppCompatActivity {
                 for(int i = 0; i< cList.size();i++){
                     if(usuario.equals(cList.get(i).getUsuario()) && pwd.equals(cList.get(i).getContraseña()) ){
                         if(cList.get(i).isAdmin()){
+                            dbHandler.setSesionCol(cList.get(i).getId(), true);
                             Intent intent = new Intent(Login.this, MainActivity.class);
                             SharedPreferences pref = getSharedPreferences("admin", Context.MODE_PRIVATE);
                             SharedPreferences.Editor editor = pref.edit();
@@ -72,6 +79,7 @@ public class Login extends AppCompatActivity {
                         }else{
                             inexistente = true;
                             //TODO: Programar el inicio de sesion de los usuarios que no son administradores
+                            dbHandler.setSesionCol(cList.get(i).getId(), true);
 
 
                         }
@@ -92,8 +100,16 @@ public class Login extends AppCompatActivity {
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
         });
+    }
 
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        for(int i = 0; i< cList.size();i++){
+            if(cList.get(i).isSesion()){
+                dbHandler.setSesionCol(cList.get(i).getId(), false);
+            }
+        }
 
     }
 }
