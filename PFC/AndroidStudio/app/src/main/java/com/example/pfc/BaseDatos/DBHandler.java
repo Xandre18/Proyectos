@@ -154,7 +154,7 @@ public class DBHandler extends SQLiteOpenHelper {
         db.insert(TABLA_CLIENTE, null, values);
         db.close();
     }
-    public ArrayList<Producto> getListaProductos(){
+    public ArrayList<Producto> getProductos(){
         listaProductos = new ArrayList<>();
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor c = db.rawQuery("SELECT * FROM " + TABLA_PRODUCTO, null);
@@ -164,7 +164,12 @@ public class DBHandler extends SQLiteOpenHelper {
                 listaProductos.add(producto);
             }while (c.moveToNext());
         }
+        db.close();
         return listaProductos;
+    }
+
+    public int sizeProductos(){
+        return listaProductos.size();
     }
 
     public void addProducto(Producto p){

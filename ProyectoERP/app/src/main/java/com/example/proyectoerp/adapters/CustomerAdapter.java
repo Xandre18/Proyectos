@@ -65,5 +65,7 @@ public class CustomerAdapter extends BaseAdapter {
 
         // Se retorna la vista actualizada
         return convertView;
+
+
     }
 }

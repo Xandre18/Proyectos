@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
          toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -40,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
 
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Ventas()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Inicio()).commit();
             navigationView.setCheckedItem(R.id.nav_catalogo);
         }
 
@@ -52,12 +51,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.nav_catalogo:
+                toolbar.setTitle("Catálogo");
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Inicio()).commit();
                 break;
             case R.id.nav_perfil:
+                toolbar.setTitle("Mi perfil");
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Perfil()).commit();
                 break;
             case R.id.nav_compras:
+                toolbar.setTitle("Mis compras");
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Ventas()).commit();
                 break;
         }

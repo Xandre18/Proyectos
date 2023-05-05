@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PFC</string>
+    <string name="app_name">ShopScan</string>
     <string name="userName">Nombre de usuario:</string>
     <string name="pwd">Contraseña:</string>
     <string name="epwd">Contraseña.......</string>
@@ -22,4 +22,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="Catalogo">Catálogo</string>
+    <string name="nproducto">NProducto</string>
+    <string name="precioP">Precio:</string>
+    <string name="comprar">Comprar</string>
 </resources>
