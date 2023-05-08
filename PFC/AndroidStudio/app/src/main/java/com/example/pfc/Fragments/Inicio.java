@@ -2,13 +2,19 @@ package com.example.pfc.Fragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.pfc.Adapters.ProductosAdapter;
 import com.example.pfc.BaseDatos.DBHandler;
@@ -23,6 +29,21 @@ public class Inicio extends Fragment {
     View v;
     List<Producto> productoList;
     DBHandler dbHandler;
+    ProductosAdapter productosAdapter;
+    RecyclerView recyclerView;
+    Button comprar;
+    TextView tvCant;
+
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        recyclerView = view.findViewById(R.id.productosList);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        productosAdapter = new ProductosAdapter(productoList, getActivity());
+        recyclerView.setAdapter(productosAdapter);
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -31,12 +52,39 @@ public class Inicio extends Fragment {
 
         dbHandler = new DBHandler(v.getContext());
         productoList = dbHandler.getProductos();
-
+        comprar = v.findViewById(R.id.btnComprar);
         if(productoList.size() == 0){
             init(v);
         }else{
             setearAdaptador();
         }
+
+        comprar.setOnClickListener(view -> {
+            Toast.makeText(v.getContext(), "lalalalalalala", Toast.LENGTH_SHORT).show();
+//            ArrayList<Integer> cantidades = new ArrayList<>();
+//            for(int i = 0; i < productosAdapter.getItemCount(); i++){
+//                View itemView = recyclerView.getChildAt(i);
+//                TextView tvCant = itemView.findViewById(R.id.cantidad);
+//                int cantidad = Integer.parseInt(tvCant.getText().toString());
+//                cantidades.add(cantidad);
+//            }
+            ArrayList<Integer> cantidades = new ArrayList<>();
+            int stockFinal = 0;
+            for(int i = 0; i< productoList.size();i ++){
+
+                int cantidad = productoList.get(i).getCantidad();
+                stockFinal = productoList.get(i).getStock() - cantidad;
+                dbHandler.updateStock(productoList.get(i).getId(), stockFinal);
+                cantidades.add(cantidad);
+
+            }
+
+            Log.d("cantidades", "Cantidades: " + cantidades.toString());
+
+
+        });
+
+
 
 
         return v;
@@ -67,10 +115,12 @@ public class Inicio extends Fragment {
     }
 
     public void setearAdaptador(){
-        ProductosAdapter productosAdapter = new ProductosAdapter(productoList, v.getContext());
-        RecyclerView recyclerView = v.findViewById(R.id.productosList);
+        productosAdapter = new ProductosAdapter(productoList, v.getContext());
+        recyclerView = v.findViewById(R.id.productosList);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(v.getContext()));
         recyclerView.setAdapter(productosAdapter);
     }
+
+
 }

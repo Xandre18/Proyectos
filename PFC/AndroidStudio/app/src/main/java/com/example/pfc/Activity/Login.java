@@ -37,11 +37,7 @@ public class Login extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        for(int i = 0; i< cList.size();i++){
-            if(cList.get(i).isSesion()){
-                dbHandler.setSesionCol(cList.get(i).getId(), false);
-            }
-        }
+        cList = dbHandler.getClientes();
 
     }
 
@@ -52,7 +48,9 @@ public class Login extends AppCompatActivity {
         SharedPreferences pref = getSharedPreferences("itiUsers", Context.MODE_PRIVATE);
         if(!pref.getBoolean("itiUsers", false)){
             Cliente c = new Cliente("78598014E", "631600462", "Xandre", "Martinez", "byxass18@gmail.com", "Fraga do rei nº 59", "root", "root", true);
+            Cliente c2 = new Cliente("78598014E", "631600462", "Xandre", "Martinez", "byxass18@gmail.com", "Fraga do rei nº 59", "pit", "pit", false);
             dbHandler.addCliente(c);
+            dbHandler.addCliente(c2);
             SharedPreferences.Editor editor = pref.edit();
             editor.putBoolean("itiUsers", true);
             editor.commit();
@@ -65,11 +63,6 @@ public class Login extends AppCompatActivity {
         btnLogin = findViewById(R.id.registrar);
         registro = findViewById(R.id.singUp);
 
-        for(int i = 0; i< cList.size();i++){
-            if(cList.get(i).isSesion()){
-                dbHandler.setSesionCol(cList.get(i).getId(), false);
-            }
-        }
     }
 
     public void eventosOnClick(){
@@ -82,6 +75,7 @@ public class Login extends AppCompatActivity {
                     if(usuario.equals(cList.get(i).getUsuario()) && pwd.equals(cList.get(i).getContraseña()) ){
                         if(cList.get(i).isAdmin()){
                             dbHandler.setSesionCol(cList.get(i).getId(), true);
+                            cList.get(i).setSesion(true);
                             Intent intent = new Intent(Login.this, MainActivity.class);
                             SharedPreferences pref = getSharedPreferences("admin", Context.MODE_PRIVATE);
                             SharedPreferences.Editor editor = pref.edit();
@@ -99,8 +93,9 @@ public class Login extends AppCompatActivity {
                             inexistente = true;
                             //TODO: Programar el inicio de sesion de los usuarios que no son administradores
                             dbHandler.setSesionCol(cList.get(i).getId(), true);
-
-
+                            Intent intent = new Intent(Login.this, MainActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            startActivity(intent);
                         }
                     }
                 }

@@ -23,6 +23,11 @@
     <item android:title=" ">
         <menu>
             <item
+                android:id="@+id/addAdmin"
+                android:icon="@drawable/add_admin"
+                android:title="Añadir administrador"/>
+
+            <item
                 android:id="@+id/nav_info"
                 android:icon="@drawable/info"
                 android:title="Info"/>

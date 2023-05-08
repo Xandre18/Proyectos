@@ -43,7 +43,7 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String TABLA_PRODUCTO = "productos";
     private static final String REF_COL = "refNum";
     private static final String IDPRODUCTO_COL = "idProd";
-    private static final String STOCk_COL = "stock";
+    private static final String STOCK_COL = "stock";
     private static final String PRECIO_COL = "precioUnidad";
     private static final String IMG_COL = "img";
     private static ArrayList<Producto> listaProductos;
@@ -86,7 +86,7 @@ public class DBHandler extends SQLiteOpenHelper {
         String query_Producto = "CREATE TABLE " + TABLA_PRODUCTO + "(" +
                 REF_COL + " INTEGER NOT NULL," +
                 IDPRODUCTO_COL  + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                STOCk_COL + " INTEGER NOT NULL," +
+                STOCK_COL + " INTEGER NOT NULL," +
                 PRECIO_COL + " INTEGER NOT NULL," +
                 IMG_COL + " INTEGER NOT NULL," +
                 NOMBRE_COL + " TEXT NOT NULL" +
@@ -131,12 +131,27 @@ public class DBHandler extends SQLiteOpenHelper {
         }
         return listaClientes;
     }
+
     public void setSesionCol(int idCliente, boolean sesion ){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(SESION_COL, sesion);
+        int variable;
+        if(sesion){
+            variable = 1;
+        }else{
+            variable = 0;
+        }
+        values.put(SESION_COL, variable);
         db.update(TABLA_CLIENTE, values, "id=?",new String[]{String.valueOf(idCliente)});
     }
+
+    public void  updateStock(int idProducto ,int cantidad){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(STOCK_COL, cantidad);
+        db.update(TABLA_PRODUCTO, values, "idProd=?", new String[]{String.valueOf(idProducto)});
+    }
+
     public void addCliente(Cliente c){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -160,7 +175,7 @@ public class DBHandler extends SQLiteOpenHelper {
         Cursor c = db.rawQuery("SELECT * FROM " + TABLA_PRODUCTO, null);
         if(c.moveToNext()){
             do{
-                Producto producto = new Producto(c.getInt(0), c.getInt(2), c.getInt(3), c.getInt(4),c.getString(5));
+                Producto producto = new Producto(c.getInt(0),c.getInt(1), c.getInt(2), c.getInt(3), c.getInt(4),c.getString(5));
                 listaProductos.add(producto);
             }while (c.moveToNext());
         }
@@ -168,20 +183,23 @@ public class DBHandler extends SQLiteOpenHelper {
         return listaProductos;
     }
 
-    public int sizeProductos(){
-        return listaProductos.size();
-    }
 
     public void addProducto(Producto p){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(REF_COL, p.getRefNu());
-        values.put(STOCk_COL,  p.getStock());
+        values.put(STOCK_COL,  p.getStock());
         values.put(PRECIO_COL, p.getPrecio());
         values.put(IMG_COL, p.getImg());
         values.put(NOMBRE_COL, p.getNombre());
         db.insert(TABLA_PRODUCTO, null, values);
         db.close();
+    }
+
+    public int getIDuserConectado(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor c = db.rawQuery("SELECT id FROM " + TABLA_CLIENTE + " WHERE sesion = 1", null);
+        return c.getInt(0);
     }
 
 }

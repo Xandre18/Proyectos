@@ -10,18 +10,24 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 
-
+import com.example.pfc.BaseDatos.DBHandler;
 import com.example.pfc.Fragments.Perfil;
 import com.example.pfc.Fragments.Inicio;
 import com.example.pfc.Fragments.Ventas;
+import com.example.pfc.Objetos.Cliente;
 import com.example.pfc.R;
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawerLayout;
     Toolbar toolbar;
+    DBHandler dbHandler;
+    ArrayList<Cliente> cList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,6 +73,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
+    public void cerrarSesion(){
+        dbHandler = new DBHandler(this);
+        cList = dbHandler.getClientes();
+        for(int i = 0; i< cList.size();i++){
+            if(cList.get(i).isSesion()){
+                dbHandler.setSesionCol(cList.get(i).getId(), false);
+            }
+        }
+    }
 
     @Override
     public void onBackPressed(){
@@ -74,6 +89,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             drawerLayout.closeDrawer(GravityCompat.START);
         }else{
             super.onBackPressed();
+            cerrarSesion();
         }
     }
 }
