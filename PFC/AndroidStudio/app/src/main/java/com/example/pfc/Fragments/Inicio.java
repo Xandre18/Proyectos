@@ -61,13 +61,6 @@ public class Inicio extends Fragment {
 
         comprar.setOnClickListener(view -> {
             Toast.makeText(v.getContext(), "lalalalalalala", Toast.LENGTH_SHORT).show();
-//            ArrayList<Integer> cantidades = new ArrayList<>();
-//            for(int i = 0; i < productosAdapter.getItemCount(); i++){
-//                View itemView = recyclerView.getChildAt(i);
-//                TextView tvCant = itemView.findViewById(R.id.cantidad);
-//                int cantidad = Integer.parseInt(tvCant.getText().toString());
-//                cantidades.add(cantidad);
-//            }
             ArrayList<Integer> cantidades = new ArrayList<>();
             int stockFinal = 0;
             for(int i = 0; i< productoList.size();i ++){
