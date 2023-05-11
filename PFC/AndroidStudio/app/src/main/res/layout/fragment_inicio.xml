@@ -22,7 +22,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="5dp"
-        android:text="@string/comprar"
-        android:textColor="@color/black"
-        android:backgroundTint="@color/azulClaro"/>
+        android:backgroundTint="@color/azulClaro"
+        android:text="@string/reservar"
+        android:textColor="@color/black" />
 </RelativeLayout>

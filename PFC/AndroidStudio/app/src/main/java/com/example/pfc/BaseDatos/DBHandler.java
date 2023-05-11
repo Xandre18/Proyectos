@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.pfc.Objetos.Cliente;
 import com.example.pfc.Objetos.Producto;
+import com.example.pfc.Objetos.ProductoCantidad;
 import com.example.pfc.Objetos.Venta;
 import com.example.pfc.Objetos.VentaProducto;
 
@@ -198,8 +199,39 @@ public class DBHandler extends SQLiteOpenHelper {
 
     public int getIDuserConectado(){
         SQLiteDatabase db = this.getWritableDatabase();
+        int id = 0;
         Cursor c = db.rawQuery("SELECT id FROM " + TABLA_CLIENTE + " WHERE sesion = 1", null);
-        return c.getInt(0);
+        if(c.moveToNext()){
+            do{
+                id = c.getInt(0);
+            }while (c.moveToNext());
+        }
+
+        return id;
+
+    }
+
+    public void addVenta(Venta v, ArrayList<ProductoCantidad> productoCantidads){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(CLIENTE_COL, v.getCliente());
+        values.put(FECHA_COL, v.getFecha());
+        db.insert(TABLA_VENTA, null, values);
+        db.close();
+
+        for(ProductoCantidad pc :productoCantidads){
+            addVentaProducto(v.getCodigo(), pc.getProducto(), pc.getCantidad());
+        }
+    }
+
+    public void addVentaProducto(int codV,int idProd, int cantidad ){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COD_VENTA_COL, codV);
+        values.put(ID_PROD, idProd);
+        values.put(CANTIDAD_COL, cantidad);
+        db.insert(TABLA_PROD_VENT, null, values);
+        db.close();
     }
 
 }

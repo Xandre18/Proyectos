@@ -19,10 +19,16 @@ import android.widget.Toast;
 import com.example.pfc.Adapters.ProductosAdapter;
 import com.example.pfc.BaseDatos.DBHandler;
 import com.example.pfc.Objetos.Producto;
+import com.example.pfc.Objetos.ProductoCantidad;
+import com.example.pfc.Objetos.Venta;
 import com.example.pfc.R;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
+import kotlin.contracts.Returns;
 
 
 public class Inicio extends Fragment {
@@ -62,6 +68,8 @@ public class Inicio extends Fragment {
         comprar.setOnClickListener(view -> {
             Toast.makeText(v.getContext(), "lalalalalalala", Toast.LENGTH_SHORT).show();
             ArrayList<Integer> cantidades = new ArrayList<>();
+            ArrayList<Integer> productsId = new ArrayList<>();
+            ArrayList<ProductoCantidad> prodCantList = new ArrayList<>();
             int stockFinal = 0;
             for(int i = 0; i< productoList.size();i ++){
 
@@ -69,10 +77,27 @@ public class Inicio extends Fragment {
                 stockFinal = productoList.get(i).getStock() - cantidad;
                 dbHandler.updateStock(productoList.get(i).getId(), stockFinal);
                 cantidades.add(cantidad);
+                productsId.add(productoList.get(i).getId());
 
             }
 
             Log.d("cantidades", "Cantidades: " + cantidades.toString());
+            int contador = 0;
+            boolean ceroProductos;
+            for (int i = 0; i< cantidades.size(); i++){
+                if(cantidades.get(i) == 0){
+                    contador++;
+                }
+            }
+
+            ceroProductos = contador == productoList.size();
+            if (ceroProductos){
+                Toast.makeText(v.getContext(), "Debes añadir por lo menos 1 producto", Toast.LENGTH_SHORT).show();
+            }else {
+                Venta venta = new Venta(dbHandler.getIDuserConectado(), obtenerFechaActual());
+                prodCantList = getProdCant(productsId, cantidades);
+                dbHandler.addVenta(venta, prodCantList);
+            }
 
 
         });
@@ -81,6 +106,27 @@ public class Inicio extends Fragment {
 
 
         return v;
+    }
+    private String obtenerFechaActual() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        String fechaActual = dateFormat.format(new Date());
+        return fechaActual;
+    }
+
+    public ArrayList<ProductoCantidad> getProdCant(ArrayList<Integer> productos, ArrayList<Integer> cantidades) {
+        ArrayList<ProductoCantidad> lisTicked = new ArrayList<>();
+
+        for (int i = 0; i < productos.size(); i++) {
+            int producto = productos.get(i);
+            int cantidad = cantidades.get(i);
+
+            if (cantidad > 0) {
+                ProductoCantidad productoCantidad = new ProductoCantidad(producto, cantidad);
+                lisTicked.add(productoCantidad);
+            }
+        }
+
+        return lisTicked;
     }
 
     public void init(View v){

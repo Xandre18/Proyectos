@@ -1,10 +1,17 @@
 package com.example.pfc.Objetos;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Venta {
     int codigo , cliente;
-    Date fecha;
+    String fecha;
+    ArrayList<Integer> cantidades;
+
+    public Venta(int cliente, String fecha) {
+        this.cliente = cliente;
+        this.fecha = fecha;
+    }
 
     public int getCodigo() {
         return codigo;
@@ -22,11 +29,19 @@ public class Venta {
         this.cliente = cliente;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
+    }
+
+    public ArrayList<Integer> getCantidades() {
+        return cantidades;
+    }
+
+    public void setCantidades(ArrayList<Integer> cantidades) {
+        this.cantidades = cantidades;
     }
 }
