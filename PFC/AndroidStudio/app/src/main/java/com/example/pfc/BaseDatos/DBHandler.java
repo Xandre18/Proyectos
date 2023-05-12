@@ -218,10 +218,27 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(FECHA_COL, v.getFecha());
         db.insert(TABLA_VENTA, null, values);
         db.close();
-
-        for(ProductoCantidad pc :productoCantidads){
-            addVentaProducto(v.getCodigo(), pc.getProducto(), pc.getCantidad());
+        getVentas();
+        int ultimoIdVenta = 0;
+        for(Venta vAux: listaVentas){
+            ultimoIdVenta = vAux.getCodigo();
         }
+        for(ProductoCantidad pc :productoCantidads){
+            addVentaProducto(ultimoIdVenta, pc.getProducto(), pc.getCantidad());
+        }
+    }
+
+    public ArrayList<Venta> getVentas(){
+        listaVentas = new ArrayList<>();
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor c = db.rawQuery("SELECT * FROM " + TABLA_VENTA, null);
+        if(c.moveToNext()){
+            do{
+              Venta v = new Venta(c.getInt(0),c.getInt(2),c.getString(1));
+              listaVentas.add(v);
+            }while (c.moveToNext());
+        }
+        return listaVentas;
     }
 
     public void addVentaProducto(int codV,int idProd, int cantidad ){

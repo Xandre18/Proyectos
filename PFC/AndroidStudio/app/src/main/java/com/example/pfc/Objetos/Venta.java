@@ -13,6 +13,12 @@ public class Venta {
         this.fecha = fecha;
     }
 
+    public Venta(int id, int cliente, String fecha) {
+        this.codigo = id;
+        this.cliente = cliente;
+        this.fecha = fecha;
+    }
+
     public int getCodigo() {
         return codigo;
     }
