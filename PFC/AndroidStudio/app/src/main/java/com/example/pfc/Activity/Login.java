@@ -48,7 +48,7 @@ public class Login extends AppCompatActivity {
         SharedPreferences pref = getSharedPreferences("itiUsers", Context.MODE_PRIVATE);
         if(!pref.getBoolean("itiUsers", false)){
             Cliente c = new Cliente("78598014E", "631600462", "Xandre", "Martinez", "byxass18@gmail.com", "Fraga do rei nº 59", "root", "root", true);
-            Cliente c2 = new Cliente("78598014E", "631600462", "Xandre", "Martinez", "byxass18@gmail.com", "Fraga do rei nº 59", "pit", "pit", false);
+            Cliente c2 = new Cliente("78598014E", "631600462", "Juan", "Martinez", "pepito32@gmail.com", "Fraga do rei nº 59", "pit", "pit", false);
             dbHandler.addCliente(c);
             dbHandler.addCliente(c2);
             SharedPreferences.Editor editor = pref.edit();

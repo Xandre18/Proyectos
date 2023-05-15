@@ -5,10 +5,13 @@
     android:layout_height="match_parent"
     tools:context=".Fragments.Ventas">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/productosList"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="pedro" />
-
+        android:layout_height="511dp"
+        android:layout_above="@+id/btnComprar"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="1dp"
+        tools:listitem="@layout/producto_list_item" />
 </FrameLayout>
