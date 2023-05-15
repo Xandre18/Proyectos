@@ -211,6 +211,37 @@ public class DBHandler extends SQLiteOpenHelper {
 
     }
 
+    public Cliente getClienteConectado(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cliente user = new Cliente();
+        Cursor c = db.rawQuery("SELECT * FROM " + TABLA_CLIENTE + " WHERE sesion = 1", null);
+        if(c.moveToNext()){
+            do{
+                boolean admin , sesion;
+                if(c.getInt(9) == 1) admin = true;
+                else admin = false;
+
+                if(c.getInt(10) == 1) sesion = true;
+                else sesion = false;
+
+                user = new Cliente(c.getInt(0), c.getString(1), c.getString(2), c.getString(3), c.getString(4), c.getString(5), c.getString(6), c.getString(7), c.getString(8),admin,sesion);
+            }while (c.moveToNext());
+        }
+        return user;
+    }
+
+    public String getNombreByID(int id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String nombreProducto = "";
+        Cursor c = db.rawQuery("SELECT nombre FROM " + TABLA_PRODUCTO + " WHERE idProd = " + id, null);
+        if(c.moveToNext()){
+            do{
+                nombreProducto = c.getString(0);
+            }while (c.moveToNext());
+        }
+        return nombreProducto;
+    }
+
     public void addVenta(Venta v, ArrayList<ProductoCantidad> productoCantidads){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();

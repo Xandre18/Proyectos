@@ -5,6 +5,9 @@ public class Cliente {
     String dni , tlf, nombre , apellido, email , direccion, usuario, contrasenha;
     boolean admin , sesion;
 
+    public Cliente(){
+
+    }
     //Constructor para registrarse
     public Cliente( String dni, String tlf, String nombre, String apellido, String email, String direccion, String usuario, String contrasenha) {
 

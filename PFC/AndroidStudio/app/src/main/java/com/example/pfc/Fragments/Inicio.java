@@ -1,5 +1,7 @@
 package com.example.pfc.Fragments;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -16,12 +18,16 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.pfc.Activity.MainActivity;
+import com.example.pfc.Activity.QR_vista;
 import com.example.pfc.Adapters.ProductosAdapter;
 import com.example.pfc.BaseDatos.DBHandler;
 import com.example.pfc.Objetos.Producto;
 import com.example.pfc.Objetos.ProductoCantidad;
 import com.example.pfc.Objetos.Venta;
 import com.example.pfc.R;
+import com.google.zxing.BarcodeFormat;
+import com.journeyapps.barcodescanner.BarcodeEncoder;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -38,7 +44,6 @@ public class Inicio extends Fragment {
     ProductosAdapter productosAdapter;
     RecyclerView recyclerView;
     Button comprar;
-    TextView tvCant;
 
 
     @Override
@@ -66,7 +71,6 @@ public class Inicio extends Fragment {
         }
 
         comprar.setOnClickListener(view -> {
-            Toast.makeText(v.getContext(), "lalalalalalala", Toast.LENGTH_SHORT).show();
             ArrayList<Integer> cantidades = new ArrayList<>();
             ArrayList<Integer> productsId = new ArrayList<>();
             ArrayList<ProductoCantidad> prodCantList = new ArrayList<>();
@@ -81,7 +85,7 @@ public class Inicio extends Fragment {
 
             }
 
-            Log.d("cantidades", "Cantidades: " + cantidades.toString());
+            //Log.d("cantidades", "Cantidades: " + cantidades.toString());
             int contador = 0;
             boolean ceroProductos;
             for (int i = 0; i< cantidades.size(); i++){
@@ -94,19 +98,32 @@ public class Inicio extends Fragment {
             if (ceroProductos){
                 Toast.makeText(v.getContext(), "Debes añadir por lo menos 1 producto", Toast.LENGTH_SHORT).show();
             }else {
+
                 Venta venta = new Venta(dbHandler.getIDuserConectado(), obtenerFechaActual());
                 prodCantList = getProdCant(productsId, cantidades);
                 dbHandler.addVenta(venta, prodCantList);
+
+                Intent intent = new Intent(v.getContext(), QR_vista.class);
+                intent.putExtra("QRCODE", generarStringQR(prodCantList));
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                Toast.makeText(v.getContext(), "Reservado correctamente..", Toast.LENGTH_SHORT).show();
             }
 
 
         });
-
-
-
-
         return v;
     }
+
+    public String generarStringQR( ArrayList<ProductoCantidad> prodCantList){
+        String aux = "";
+
+        for(int i =0 ; i < prodCantList.size();i++){
+            aux = aux + dbHandler.getNombreByID(prodCantList.get(i).getProducto()) + " --> " + prodCantList.get(i).getCantidad() + "\n";
+        }
+        return aux;
+    }
+
     private String obtenerFechaActual() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
         String fechaActual = dateFormat.format(new Date());

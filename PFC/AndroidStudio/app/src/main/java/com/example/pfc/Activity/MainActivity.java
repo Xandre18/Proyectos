@@ -8,8 +8,11 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -28,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     Toolbar toolbar;
     DBHandler dbHandler;
     ArrayList<Cliente> cList;
+    TextView userName, correo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +54,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             navigationView.setCheckedItem(R.id.nav_catalogo);
         }
 
+        // Configura el encabezado del cajón de navegación
+        View headerView = navigationView.inflateHeaderView(R.layout.nav_header);
+        userName = headerView.findViewById(R.id.user);
+        correo = headerView.findViewById(R.id.correo);
+        dbHandler = new DBHandler(this);
+        Cliente conectado = dbHandler.getClienteConectado();
+
+        userName.setText("Cliente: " + conectado.getNombre());
+        correo.setText("Correo: " + conectado.getEmail());
+
 
     }
 
@@ -69,6 +83,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 toolbar.setTitle("Mis compras");
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Ventas()).commit();
                 break;
+            case R.id.nav_logaut:
+                cerrarSesion();
+                Intent intent = new Intent(MainActivity.this, Login.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                finish();
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);
