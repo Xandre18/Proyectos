@@ -127,7 +127,7 @@ public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.View
         this.mInflater = LayoutInflater.from(context);
         this.mData = mData;
         this.context = context;
-        carritoDeCompras = new ArrayList<>();
+        //carritoDeCompras = new ArrayList<>();
     }
 
     @NonNull

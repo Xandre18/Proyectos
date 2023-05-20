@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 public class DBHandler extends SQLiteOpenHelper {
     private static final int DB_VERSION = 1;
-    private static final String DB_NAME = "dbShopScan.sqlite";
+    private static final String DB_NAME = "dbShopScan";
 
     //Tabla Cliente;
     private static final String TABLA_CLIENTE = "clientes";
@@ -294,6 +294,19 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(CANTIDAD_COL, cantidad);
         db.insert(TABLA_PROD_VENT, null, values);
         db.close();
+    }
+
+    public ArrayList<ProductoCantidad> getProductosCantidadVenta(int codV){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ArrayList<ProductoCantidad> lista = new ArrayList<>();
+        Cursor c = db.rawQuery("SELECT * FROM " + TABLA_PROD_VENT + " WHERE codV = " +codV, null);
+        if(c.moveToNext()){
+            do{
+               ProductoCantidad pc = new ProductoCantidad(c.getInt(1), c.getInt(2));
+               lista.add(pc);
+            }while (c.moveToNext());
+        }
+        return lista;
     }
 
 }

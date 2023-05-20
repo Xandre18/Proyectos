@@ -89,6 +89,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 finish();
+
+            case R.id.addAdmin:
+                //TODO: si es admin fragment añadir admin
+            case R.id.nav_info:
+                //TODO: dialogo con información
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);

@@ -1,9 +1,10 @@
 package com.example.pfc.Objetos;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Venta {
+public class Venta implements Serializable {
     int codigo , cliente;
     String fecha;
     ArrayList<Integer> cantidades;

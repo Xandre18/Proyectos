@@ -16,6 +16,13 @@
         android:theme="@style/Theme.PFC"
         tools:targetApi="31">
         <activity
+            android:name=".Activity.InfoVenta"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".Activity.QR_vista"
             android:exported="false" />
         <activity
