@@ -1,0 +1,361 @@
+<mxfile host="Electron" modified="2023-05-26T16:08:39.022Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.2.8 Chrome/112.0.5615.165 Electron/24.2.0 Safari/537.36" etag="k7s7B3mBMDlkogcd2HkU" version="21.2.8" type="device">
+  <diagram name="Página-1" id="G0q_hPXeAAuDpCpE8BdM">
+    <mxGraphModel dx="5751" dy="2411" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-8" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="-370" y="2490" width="310" height="510" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-5" value="Cliente" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-8">
+          <mxGeometry width="310" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-6" value="~id: int&lt;br&gt;~dni: String&lt;br&gt;~tlf: String&lt;br&gt;~nombre: String&lt;br&gt;~apellido: String&lt;br&gt;~email: String&lt;br&gt;~direccion: String&lt;br&gt;~usuario: String&lt;br&gt;~contraseña: String&lt;br&gt;~admin: Boolean&lt;br&gt;~sesion: Boolean" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-8">
+          <mxGeometry y="20" width="310" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-7" value="+cliente()&lt;br&gt;+getId()&lt;br&gt;+setId()&lt;br&gt;+getDni() &lt;br&gt;+setDni()&lt;br&gt;+getTlf()&lt;br&gt;+setTlf()&lt;br&gt;+getNombre()&lt;br&gt;+setNombre()&lt;br&gt;+getApellido()&lt;br&gt;+setApellido()&lt;br&gt;+getEmail()&lt;br&gt;+setEmail()&lt;br&gt;+getDireccion()&lt;br&gt;+setDireccion()&lt;br&gt;+getContraseña()&lt;br&gt;+setContraseña()&lt;br&gt;+isAdmin()&lt;br&gt;+setAdmin()&lt;br&gt;+isSesion()&lt;br&gt;+setSesion()" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-8">
+          <mxGeometry y="190" width="310" height="320" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-30" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="40" y="880" width="310" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-15" value="Venta&lt;br&gt;(com.example.pfc.Objetos)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-30">
+          <mxGeometry width="310" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-16" value="~codigo: int&lt;br&gt;~cliente: int&lt;br&gt;~fecha: String&lt;br&gt;~cantidades: ArrayList&amp;lt;Integer&amp;gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-30">
+          <mxGeometry y="30" width="310" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-17" value="+Venta()&lt;br&gt;+getCodigo()&lt;br&gt;+setCodigo()&lt;br&gt;+getCliente()&lt;br&gt;+setCliente()&lt;br&gt;+getFecha()&lt;br&gt;+setFecha()&lt;br&gt;+getCantidades()&lt;br&gt;+setCantidades()&lt;br&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-30">
+          <mxGeometry y="110" width="310" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-35" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="40" y="1200" width="310" height="171" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-32" value="Venta&lt;br&gt;(com.example.pfc.Fragments)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-35">
+          <mxGeometry width="310" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-33" value="~v: View&lt;br&gt;~dbHandler: DBHandler&lt;br&gt;~ventaClienteList: Venta&lt;br&gt;~ventasAdapter:VentasAdapter&lt;br&gt;~recyclerView: RecyclerView" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-35">
+          <mxGeometry y="30" width="310" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-34" value="+onCreateView(): View&lt;br&gt;+datosVenta(): void" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-35">
+          <mxGeometry y="110" width="310" height="61" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-36" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="0xzsD5YeqHHkbNbkPB6m-32" target="0xzsD5YeqHHkbNbkPB6m-17">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="390" y="1360" as="sourcePoint" />
+            <mxPoint x="440" y="1310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-46" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="40" y="1420" width="310" height="820" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-43" value="DBHandler&lt;br&gt;(com.example.pfc.BaseDatos)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-46">
+          <mxGeometry width="310" height="115.78947368421053" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-44" value="-DB_VERSION = 1&lt;br&gt;-&amp;nbsp;DB_NAME = &quot;dbShopScan&quot;&lt;br&gt;-TABLA_CLIENTE = &quot;clientes&quot;&lt;br&gt;-IDCLIENTE_COL = &quot;id&quot;&lt;br&gt;-DNI_COL = &quot;dni&quot;&lt;br&gt;-TLF_COL = &quot;tlf&quot;&lt;br&gt;-NOMBRE_COL = &quot;nombre&quot;&lt;br&gt;-&amp;nbsp;APELLIDO_COL = &quot;apellido&quot;&lt;br&gt;-EMAIL_COL = &quot;email&quot;&lt;br&gt;-DIRECCION_COL = &quot;dir&quot;&lt;br&gt;-USUARIO_COL = &quot;user&quot;&lt;br&gt;-&amp;nbsp;CONTRASENHA_COL = &quot;pwd&quot;&lt;br&gt;-ADMIN_COL = &quot;admin&quot;&lt;br&gt;-SESION_COL = &quot;sesion&quot;&lt;br&gt;-ArrayList&amp;lt;Cliente&amp;gt; listaClientes&lt;br&gt;-TABLA_VENTA = &quot;ventas&quot;&lt;br&gt;-CODIGO_COL = &quot;codV&quot;&lt;br&gt;-FECHA_COL = &quot;fecha&quot;&lt;br&gt;-&amp;nbsp;CLIENTE_COL = &quot;id_cliente&quot;&lt;br&gt;-ArrayList&amp;lt;Venta&amp;gt; listaVentas&lt;br&gt;-TABLA_PRODUCTO = &quot;productos&quot;&lt;br&gt;-REF_COL = &quot;refNum&quot;&lt;br&gt;-IDPRODUCTO_COL = &quot;idProd&quot;&lt;br&gt;-STOCK_COL = &quot;stock&quot;&lt;br&gt;-PRECIO_COL = &quot;precioUnidad&quot;&lt;br&gt;-IMG_COL = &quot;img&quot;&lt;br&gt;-ArrayList&amp;lt;Producto&amp;gt; listaProductos&lt;br&gt;-&amp;nbsp;TABLA_PROD_VENT = &quot;ventasProductos&quot;&lt;br&gt;-&amp;nbsp;COD_VENTA_COL = &quot;codV&quot;&lt;br&gt;-&amp;nbsp;ID_PROD = &quot;idProd&quot;&lt;br&gt;-&amp;nbsp;CANTIDAD_COL = &quot;cantidad&quot;&lt;br&gt;-ArrayList&amp;lt;VentaProducto&amp;gt; listaVentaProducto" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-46">
+          <mxGeometry y="115.78999999999996" width="310" height="464.21" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-45" value="+DBHandler(context)+&lt;br&gt;+onCreate()&lt;br&gt;+onUpgrade()&lt;br&gt;+getClientes()&lt;br&gt;+setSesionCol()&lt;br&gt;+updateStock()&lt;br&gt;+addCliente()&lt;br&gt;+getProductos()&lt;br&gt;+addProducto()&lt;br&gt;+getIDuserConectado()&lt;br&gt;+getClienteConectado()&lt;br&gt;+getNombreByID()&lt;br&gt;+addVenta()&lt;br&gt;+getVentas()&lt;br&gt;+getVentasByCliente()&lt;br&gt;+addVentaProducto()&lt;br&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-46">
+          <mxGeometry y="580" width="310" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-47" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="0xzsD5YeqHHkbNbkPB6m-34" target="0xzsD5YeqHHkbNbkPB6m-43">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="390" y="1630" as="sourcePoint" />
+            <mxPoint x="440" y="1580" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-52" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="450" y="990" width="236" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-49" value="ViewHolder&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;(com.example.pfc.VentasAdapter)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-52">
+          <mxGeometry width="235.99999999999997" height="24.545454545454547" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-50" value="~fecha: TextView&lt;br&gt;~codV: TextView" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-52">
+          <mxGeometry y="24.545454545454547" width="235.99999999999997" height="32.72727272727273" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-51" value="+ViewHolder()&lt;br&gt;~bindData()" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-52">
+          <mxGeometry y="57.27272727272727" width="235.99999999999997" height="32.72727272727273" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-57" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="413" y="1200" width="310" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-54" value="VentaAdapter&lt;br&gt;(com.example.pfc.Adapters)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-57">
+          <mxGeometry width="310" height="28.333333333333332" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-55" value="-mData: Venta&lt;br&gt;-mInflater: LayoutInflater&lt;br&gt;-context: Context&lt;br&gt;~listener: OnItemClickListener" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-57">
+          <mxGeometry y="28.333333333333332" width="310" height="75.55555555555556" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-56" value="+VentasAdapter()&lt;br&gt;+onCreateViewHolder()&lt;br&gt;+onBindViewHolder&lt;br&gt;+getItemCount" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-57">
+          <mxGeometry y="103.88888888888889" width="310" height="66.11111111111111" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-58" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="0xzsD5YeqHHkbNbkPB6m-33" target="0xzsD5YeqHHkbNbkPB6m-55">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="470" y="1290" as="sourcePoint" />
+            <mxPoint x="520" y="1240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-59" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="0xzsD5YeqHHkbNbkPB6m-54" target="0xzsD5YeqHHkbNbkPB6m-51">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="530" y="1120" as="sourcePoint" />
+            <mxPoint x="520" y="1240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-62" value="" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=0.405;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="0xzsD5YeqHHkbNbkPB6m-55">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="470" y="1390" as="sourcePoint" />
+            <mxPoint x="800" y="1260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-63" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="800" y="920" as="sourcePoint" />
+            <mxPoint x="800" y="1260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-64" value="" style="endArrow=classic;html=1;rounded=0;entryX=1.002;entryY=0.108;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="0xzsD5YeqHHkbNbkPB6m-16">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="800" y="920" as="sourcePoint" />
+            <mxPoint x="690" y="950" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-69" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="413" y="1564" width="310" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-66" value="InfoVenta&lt;br&gt;(com.example.pfc.Activity)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-69">
+          <mxGeometry width="310" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-67" value="~handler: DBHandler&lt;br&gt;~lista: ProductosCantidad&lt;br&gt;~StringQR: String&lt;br&gt;~volver: ImageView&lt;br&gt;~qrReserva: ImageView&lt;br&gt;~tvQR: TextView" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-69">
+          <mxGeometry y="30" width="310" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-68" value="#onCreate()&lt;br&gt;+generarStringQR()" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-69">
+          <mxGeometry y="130" width="310" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-70" value="" style="endArrow=classic;html=1;rounded=0;exitX=-0.001;exitY=0.459;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.224;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="0xzsD5YeqHHkbNbkPB6m-67" target="0xzsD5YeqHHkbNbkPB6m-44">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="560" y="1790" as="sourcePoint" />
+            <mxPoint x="610" y="1740" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-76" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="470" y="1810" width="170" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-72" value="ProductoCantidad&lt;br&gt;(com.example.pfc.Activity)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-76">
+          <mxGeometry width="170" height="24.545454545454547" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-27" value="-producto: int&lt;br&gt;-cantidad: int" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-76">
+          <mxGeometry y="24.545454545454547" width="170" height="32.72727272727273" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-28" value="+getProducto()&lt;br&gt;+getCantidad(" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-76">
+          <mxGeometry y="57.27272727272727" width="170" height="32.72727272727273" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-77" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.475;exitY=1.008;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.534;entryY=0.013;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="0xzsD5YeqHHkbNbkPB6m-68" target="0xzsD5YeqHHkbNbkPB6m-72">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="560" y="1750" as="sourcePoint" />
+            <mxPoint x="560" y="1800" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-83" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="-370" y="2230" width="310" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-79" value="MainActivity&lt;br&gt;(com.example.pfc.Activity)" style="rounded=0;whiteSpace=wrap;html=1;container=1;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-83">
+          <mxGeometry width="310" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-80" value="-drawerLayout: DrawerLayout&lt;br&gt;~toolbar: Toolbar&lt;br&gt;~dbHandler: DBHandler&lt;br&gt;~cList: Cliente&lt;br&gt;~userName: TextView&lt;br&gt;~correo: TextView" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-83">
+          <mxGeometry y="30" width="310" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-81" value="#onCreate(): void&lt;br&gt;+onNavigationItemSelected(): boolean&lt;br&gt;+cerrarSesion(): void&lt;br&gt;+onBackPressed(): void" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-83">
+          <mxGeometry y="120" width="310" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-84" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=1;entryDx=0;entryDy=0;exitX=1.002;exitY=0.33;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="0xzsD5YeqHHkbNbkPB6m-79" target="0xzsD5YeqHHkbNbkPB6m-45">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-270" y="2430" as="sourcePoint" />
+            <mxPoint x="-220" y="2380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-86" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="0xzsD5YeqHHkbNbkPB6m-81" target="0xzsD5YeqHHkbNbkPB6m-5">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-140" y="2630" as="sourcePoint" />
+            <mxPoint x="-90" y="2580" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-91" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="30" y="2570" width="310" height="310" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-88" value="AddCliente&lt;br&gt;(com.example.pfc.Activity)" style="rounded=0;whiteSpace=wrap;html=1;container=1;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-91">
+          <mxGeometry width="310" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-89" value="~back: ImageView&lt;br&gt;~next: ImageView&lt;br&gt;~uno: ConstraintLayout&lt;br&gt;~dos: ConstraintLayout&lt;br&gt;~eDni: EditText&lt;br&gt;~eNombre: EditText&lt;br&gt;~eApellido: EditText&lt;br&gt;~eMail: EditText&lt;br&gt;~eDir: EditText&lt;br&gt;~eUser: EditText&lt;br&gt;~ePwd: EditText&lt;br&gt;~registrar: FloatingActionButton&lt;br&gt;~dbHandler: DBHandler&lt;br&gt;~clienteList: Cliente" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-91">
+          <mxGeometry y="30" width="310" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-90" value="#onCreate(): void&lt;br&gt;+validarDNI: boolean&lt;br&gt;+validarEmail: boolean&lt;br&gt;+validarTelefono: boolean&lt;br&gt;+validarUsuario: boolean" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-91">
+          <mxGeometry y="240" width="310" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-92" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="30" y="2710" as="sourcePoint" />
+            <mxPoint x="-60" y="2710" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-93" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.452;entryY=1.004;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="0xzsD5YeqHHkbNbkPB6m-88" target="0xzsD5YeqHHkbNbkPB6m-45">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-130" y="2590" as="sourcePoint" />
+            <mxPoint x="180" y="2250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-99" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="-827" y="2400" width="310" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-95" value="Login&lt;br&gt;(com.example.pfc.Activity)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-99">
+          <mxGeometry width="310" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-96" value="~eUsuario: EditText&lt;br&gt;~ePwd: EditText&lt;br&gt;~inexistente: boolean&lt;br&gt;~btnLogin: FloatingActionButton&lt;br&gt;~dbHandler: DBHandler&lt;br&gt;~cList: ArrayList&amp;lt;Cliente&amp;gt;&lt;br&gt;~registro: ImageView" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-99">
+          <mxGeometry y="30" width="310" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-97" value="#onCreate()&lt;br&gt;#onResume()&lt;br&gt;+init()&lt;br&gt;+eventosOnclick()" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-99">
+          <mxGeometry y="140" width="310" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-100" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.695;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;exitPerimeter=0;" edge="1" parent="1" source="0xzsD5YeqHHkbNbkPB6m-95" target="0xzsD5YeqHHkbNbkPB6m-81">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-440" y="1990" as="sourcePoint" />
+            <mxPoint x="-240" y="2270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-105" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="-760" y="1700" width="310" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-104" value="+onViewCreated(): void&lt;br&gt;+onCreateView(): View&lt;br&gt;+generarStringQR(): String&lt;br&gt;+obtenerFechaActual: String&lt;br&gt;+getProdCant(): ArrayList&amp;lt;ProductoCantidad&amp;gt;&lt;br&gt;+inti: void&lt;br&gt;+setearAdaptor(): void" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-105">
+          <mxGeometry y="110" width="310" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-102" value="Inicio&lt;br&gt;(com.example.pfc.Fragment)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-105">
+          <mxGeometry width="310" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-103" value="~v: View&lt;br&gt;~productoList: Producto&lt;br&gt;~dbHandler: DBHandler&lt;br&gt;~productosAdpter: ProductosAdapter&lt;br&gt;~recyclerView: RecyclerView" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-105">
+          <mxGeometry y="30" width="310" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-106" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="0xzsD5YeqHHkbNbkPB6m-103" target="0xzsD5YeqHHkbNbkPB6m-44">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-360" y="1940" as="sourcePoint" />
+            <mxPoint x="-310" y="1890" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-107" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="0xzsD5YeqHHkbNbkPB6m-104" target="0xzsD5YeqHHkbNbkPB6m-10">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-700" y="2260" as="sourcePoint" />
+            <mxPoint x="-650" y="2210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-108" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="-760" y="1980" width="310" height="380" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-10" value="Producto&lt;br&gt;(com.example.pfc.Object)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-108">
+          <mxGeometry width="310" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-11" value="~refNu: int&lt;br&gt;~id: int&lt;br&gt;~stock: int&lt;br&gt;~img: int&lt;br&gt;~cantidad: int&lt;br&gt;~nombre: String" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-108">
+          <mxGeometry y="30" width="310" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-12" value="+Producto()&lt;br&gt;+getCantidad()&lt;br&gt;+setCantidad()&lt;br&gt;+getRefNu()&lt;br&gt;+setRefNu()&lt;br&gt;+getId()&lt;br&gt;+setId()&lt;br&gt;+getStock()&lt;br&gt;+setStock()&lt;br&gt;+getPrecio()&lt;br&gt;+setPrecio()&lt;br&gt;+getImg()&lt;br&gt;+setImg()&lt;br&gt;+getNombre()&lt;br&gt;+setNombre()" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-108">
+          <mxGeometry y="140" width="310" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-113" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="-1160" y="1720" width="310" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-110" value="ProductosAdapter&lt;br&gt;(com.example.pfc.Adapters)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-113">
+          <mxGeometry width="310" height="28.333333333333332" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-111" value="-mData: Producto&lt;br&gt;-mInflater: LayoutInflater&lt;br&gt;-context: Context&lt;br&gt;-carritoDeCompras: Producto" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-113">
+          <mxGeometry y="28.333333333333258" width="310" height="75.55555555555556" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-112" value="+ProductosAdapter(): void&lt;br&gt;+onCreateViewHolder(): ViewHolder&lt;br&gt;+getItemCount(): int&lt;br&gt;+getCarrido(): List&amp;lt;Producto&amp;gt;&lt;br&gt;+onBindViewHolder(): void" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-113">
+          <mxGeometry y="103.8900000000001" width="310" height="86.11" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-114" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.464;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="0xzsD5YeqHHkbNbkPB6m-112" target="0xzsD5YeqHHkbNbkPB6m-104">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-830" y="1850" as="sourcePoint" />
+            <mxPoint x="-840" y="1810" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-120" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="-1106.5" y="1490" width="203" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-116" value="ViewHolder&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;(com.example.pfc.ProductosAdapter)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-120">
+          <mxGeometry width="203" height="32.14305259125485" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-117" value="~imgProducto: ImageView&lt;br&gt;~nProducto: TextView&lt;br&gt;~precioP: TextView&lt;br&gt;~cantidad: TextView&lt;br&gt;~menos: ImageButton&lt;br&gt;~mas: ImageButton&lt;br&gt;~numCant: int" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-120">
+          <mxGeometry y="32.14305259125481" width="203" height="107.40710337656651" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-118" value="+ViewHolder()&lt;br&gt;~bindData()" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-120">
+          <mxGeometry y="139.5526932433844" width="203" height="30.44730675661557" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-121" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="0xzsD5YeqHHkbNbkPB6m-110" target="0xzsD5YeqHHkbNbkPB6m-118">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-660" y="1710" as="sourcePoint" />
+            <mxPoint x="-1010" y="1670" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-122" value="" style="endArrow=none;html=1;rounded=0;entryX=0.514;entryY=1.007;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="0xzsD5YeqHHkbNbkPB6m-112">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-1000" y="2120" as="sourcePoint" />
+            <mxPoint x="-680" y="2050" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-123" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" target="0xzsD5YeqHHkbNbkPB6m-11">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-1000" y="2120" as="sourcePoint" />
+            <mxPoint x="-850" y="2100" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-129" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="-706.5" y="1450" width="203" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-126" value="QR_Vista&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;(com.example.pfc.Activity)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-129">
+          <mxGeometry width="203" height="32.14305259125485" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-127" value="~qrcode: ImageView&lt;br&gt;~volver: Button" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-129">
+          <mxGeometry y="32.1430525912549" width="203" height="107.40710337656651" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-128" value="#onCreate(): void" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-129">
+          <mxGeometry y="139.5526932433845" width="203" height="30.44730675661557" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-130" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="0xzsD5YeqHHkbNbkPB6m-102" target="0xzsD5YeqHHkbNbkPB6m-128">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-480" y="1780" as="sourcePoint" />
+            <mxPoint x="-430" y="1730" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-131" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="-360" y="1420" width="310" height="180.47000000000003" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-20" value="VentaProducto&lt;br&gt;(com.example.pfc.Object)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-131">
+          <mxGeometry width="310" height="31.9" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-21" value="~codV: int&lt;br&gt;~idPro: int&lt;br&gt;~cantidad: int" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-131">
+          <mxGeometry y="31.90000000000009" width="310" height="48.57" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-22" value="+getCodV()&lt;br&gt;+setCodV()&lt;br&gt;+getIdPro()&lt;br&gt;+setIdPro()&lt;br&gt;+getCantidad()&lt;br&gt;+setCantidad()" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-131">
+          <mxGeometry y="80.47000000000003" width="310" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-132" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="0xzsD5YeqHHkbNbkPB6m-21" target="0xzsD5YeqHHkbNbkPB6m-43">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-170" y="1640" as="sourcePoint" />
+            <mxPoint x="-120" y="1590" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-137" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="-370" y="2020" width="310" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-134" value="Portada&lt;br&gt;(com.example.pfc.Activity)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-137">
+          <mxGeometry width="310" height="31.9" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-135" value="#onCreate(): void" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="0xzsD5YeqHHkbNbkPB6m-137">
+          <mxGeometry y="31.90000000000009" width="310" height="38.1" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-138" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="0xzsD5YeqHHkbNbkPB6m-135" target="0xzsD5YeqHHkbNbkPB6m-79">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="0xzsD5YeqHHkbNbkPB6m-139" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="-1260" y="770" width="2090" height="2310" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -27,34 +27,28 @@ public class VentasAdapter extends RecyclerView.Adapter<VentasAdapter.ViewHolder
     public interface OnItemClickListener {
         void onItemClick(Venta v);
     }
-
     public VentasAdapter(List<Venta> mData , Context context , VentasAdapter.OnItemClickListener listener){
         this.mInflater = LayoutInflater.from(context);
         this.mData = mData;
         this.context = context;
         this.listener = listener;
     }
-
-
     @NonNull
     @Override
     public VentasAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = mInflater.inflate(R.layout.venta_list_item,null);
         return new VentasAdapter.ViewHolder(v);
     }
-
     @Override
     public void onBindViewHolder(@NonNull VentasAdapter.ViewHolder holder, int position) {
         holder.bindData(mData.get(position));
 
 
     }
-
     @Override
     public int getItemCount() {
         return mData.size();
     }
-
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView fecha , codV;
         public ViewHolder(@NonNull View v) {

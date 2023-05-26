@@ -58,8 +58,6 @@ public class DBHandler extends SQLiteOpenHelper {
 
     //Constructor
     public DBHandler(Context context){super(context, DB_NAME, null, DB_VERSION);}
-
-
     @Override
     public void onCreate(SQLiteDatabase db) {
         String query_Cliente = "CREATE TABLE " + TABLA_CLIENTE + "(" +
@@ -103,7 +101,6 @@ public class DBHandler extends SQLiteOpenHelper {
 
 
     }
-
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLA_CLIENTE);
@@ -112,7 +109,6 @@ public class DBHandler extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLA_PROD_VENT);
         onCreate(db);
     }
-
     public ArrayList<Cliente> getClientes(){
         listaClientes = new ArrayList<>();
         SQLiteDatabase db = this.getWritableDatabase();
@@ -132,7 +128,6 @@ public class DBHandler extends SQLiteOpenHelper {
         }
         return listaClientes;
     }
-
     public void setSesionCol(int idCliente, boolean sesion ){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -145,14 +140,12 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(SESION_COL, variable);
         db.update(TABLA_CLIENTE, values, "id=?",new String[]{String.valueOf(idCliente)});
     }
-
     public void  updateStock(int idProducto ,int cantidad){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(STOCK_COL, cantidad);
         db.update(TABLA_PRODUCTO, values, "idProd=?", new String[]{String.valueOf(idProducto)});
     }
-
     public void addCliente(Cliente c){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -183,8 +176,6 @@ public class DBHandler extends SQLiteOpenHelper {
         db.close();
         return listaProductos;
     }
-
-
     public void addProducto(Producto p){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -196,7 +187,6 @@ public class DBHandler extends SQLiteOpenHelper {
         db.insert(TABLA_PRODUCTO, null, values);
         db.close();
     }
-
     public int getIDuserConectado(){
         SQLiteDatabase db = this.getWritableDatabase();
         int id = 0;
@@ -210,7 +200,6 @@ public class DBHandler extends SQLiteOpenHelper {
         return id;
 
     }
-
     public Cliente getClienteConectado(){
         SQLiteDatabase db = this.getWritableDatabase();
         Cliente user = new Cliente();
@@ -229,7 +218,6 @@ public class DBHandler extends SQLiteOpenHelper {
         }
         return user;
     }
-
     public String getNombreByID(int id){
         SQLiteDatabase db = this.getWritableDatabase();
         String nombreProducto = "";
@@ -241,7 +229,6 @@ public class DBHandler extends SQLiteOpenHelper {
         }
         return nombreProducto;
     }
-
     public void addVenta(Venta v, ArrayList<ProductoCantidad> productoCantidads){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -258,7 +245,6 @@ public class DBHandler extends SQLiteOpenHelper {
             addVentaProducto(ultimoIdVenta, pc.getProducto(), pc.getCantidad());
         }
     }
-
     public ArrayList<Venta> getVentas(){
         listaVentas = new ArrayList<>();
         SQLiteDatabase db = this.getWritableDatabase();
@@ -271,7 +257,6 @@ public class DBHandler extends SQLiteOpenHelper {
         }
         return listaVentas;
     }
-
     public ArrayList<Venta> getVentasByCliente(int id){
         listaVentas = new ArrayList<>();
         SQLiteDatabase db = this.getWritableDatabase();
@@ -285,7 +270,6 @@ public class DBHandler extends SQLiteOpenHelper {
         return listaVentas;
 
     }
-
     public void addVentaProducto(int codV,int idProd, int cantidad ){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -295,7 +279,6 @@ public class DBHandler extends SQLiteOpenHelper {
         db.insert(TABLA_PROD_VENT, null, values);
         db.close();
     }
-
     public ArrayList<ProductoCantidad> getProductosCantidadVenta(int codV){
         SQLiteDatabase db = this.getWritableDatabase();
         ArrayList<ProductoCantidad> lista = new ArrayList<>();
