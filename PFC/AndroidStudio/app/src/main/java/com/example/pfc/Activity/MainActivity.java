@@ -8,6 +8,8 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -89,11 +91,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 finish();
+                break;
 
             case R.id.addAdmin:
                 //TODO: si es admin fragment añadir admin
             case R.id.nav_info:
-                //TODO: dialogo con información
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setTitle("Sobre nosotros");
+                builder.setMessage("Este programa fue desarrollado por Alexandre Martínez Correia para la entrega de su proyecto fin de ciclo. Faltan por implementar muchas de las funcionalidades ya que el desarrollador mientras la hacia estaba en su periodo de practicas y debido al escaso tiempo que tenia y la carga de trabajo en la empresa le impidió progresar adecuadamente en el proyecto.");
+
+                builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                       dialog.dismiss();
+                    }
+                });
+                AlertDialog dialog = builder.create();
+                dialog.show();
+
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);

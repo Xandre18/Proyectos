@@ -315,6 +315,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/registrar"
         app:layout_constraintTop_toBottomOf="@+id/DP" />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
